@@ -1,21 +1,33 @@
 {
-  "name": "e-prim-workspace",
-  "version": "1.0.0",
-  "private": true,
-  "workspaces": [
-    "lib",
-    "docs"
+  "name": "e-prim",
+  "description": "A set of tools to implement a design system on top of @emotion/css and @emotion/react as well as add some primitive components to make prototyping UI faster and easier",
+  "version": "0.2.0",
+  "author": "Daniel Stoyanoff <dannystoyanoff@gmail.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
   ],
   "scripts": {
-    "docs": "yarn workspace docs",
-    "lib": "yarn workspace e-prim"
+    "build": "tsup",
+    "release": "semantic-release"
+  },
+  "peerDependencies": {
+    "@emotion/react": ">11",
+    "react": ">18"
   },
   "devDependencies": {
+    "@emotion/react": "^11.10.5",
     "@types/react": "^18.0.25",
+    "react": "^18.2.0",
+    "semantic-release": "^19.0.5",
+    "tsup": "^6.4.0",
     "typescript": "^4.8.4"
   },
-  "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "react": "^18.2.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dstoyanoff/emotion-primitive.git"
   }
 }
