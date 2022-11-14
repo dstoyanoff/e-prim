@@ -11,6 +11,7 @@
     "dist/**/*"
   ],
   "scripts": {
+    "dev": "yarn --cwd ./docs dev",
     "build": "tsup",
     "release": "semantic-release"
   },
@@ -20,6 +21,9 @@
   },
   "devDependencies": {
     "@emotion/react": "^11.10.5",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/github": "^8.0.6",
+    "@semantic-release/release-notes-generator": "^10.0.3",
     "@types/react": "^18.0.25",
     "react": "^18.2.0",
     "semantic-release": "^19.0.5",

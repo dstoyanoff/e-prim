@@ -1,6 +1,19 @@
 {
-  "references": [{ "path": "./docs" }, { "path": "./lib" }],
-  "files": [],
-  "include": [],
-  "exclude": ["**/node_modules"]
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "jsxImportSource": "@emotion/react"
+  },
+  "include": ["lib/**/*.ts"],
+  "exclude": ["node_modules"]
 }
