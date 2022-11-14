@@ -1,0 +1,13 @@
+{
+  "name": "e-prim",
+  "version": "0.1.0",
+  "description": "A set of tools to implement a design system on top of @emotion/css and @emotion/react as well as add some primitive components to make prototyping UI faster and easier",
+  "main": "index.js",
+  "repository": "git@github.com:dstoyanoff/emotion-primitive.git",
+  "author": "Daniel Stoyanoff <dannystoyanoff@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "docs": "start-storybook -p 6006",
+    "build-docs": "build-storybook"
+  }
+}

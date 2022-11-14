@@ -1,0 +1,6 @@
+{
+  "references": [{ "path": "./docs" }, { "path": "./lib" }],
+  "files": [],
+  "include": [],
+  "exclude": ["**/node_modules"]
+}
