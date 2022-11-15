@@ -12,8 +12,8 @@
   ],
   "scripts": {
     "dev": "yarn --cwd ./docs dev",
-    "build": "tsup",
-    "release": "semantic-release"
+    "example": "yarn --cwd ./example install && yarn --cwd ./example dev",
+    "build": "tsup"
   },
   "peerDependencies": {
     "@emotion/react": ">11",

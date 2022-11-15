@@ -1,28 +1,21 @@
 import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import { PropsWithChildren } from "react";
+import { pxOrRaw } from "../utils/px-or-raw";
 import { BaseTheme, ThemeConfig } from "./types";
 
 export type ThemeProviderProps<TTheme extends ThemeConfig> = {
-  mode?: "dark" | "light";
-  theme: TTheme | { dark: TTheme; light: TTheme };
+  theme: TTheme;
 };
 
 export function ThemeProvider<TTheme extends ThemeConfig>({
   children,
   theme,
-  mode,
 }: PropsWithChildren<ThemeProviderProps<TTheme>>) {
-  // TODO: add automatic theme detector
-  if ("dark" in theme) {
-    return null;
-  }
-
   const themeEnriched: BaseTheme = {
     ...theme,
     mediaDown: breakpoint => `@media (max-width: ${theme.breakpoint[breakpoint]}px)`,
     mediaUp: breakpoint => `@media (min-width: ${theme.breakpoint[breakpoint]}px)`,
-    spacing: (...values) =>
-      values.map(item => (typeof item === "string" ? item : `${item * theme.spacing}px`)).join(" "),
+    spacing: (...values) => values.map(item => pxOrRaw(item, item => item * theme.spacing)).join(" "),
     spacingValue: theme.spacing,
   };
 

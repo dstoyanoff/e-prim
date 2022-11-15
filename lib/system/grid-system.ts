@@ -1,5 +1,6 @@
 import { CSSObject } from "@emotion/react";
 import { BaseTheme, SpacingUnit } from "../theme/types";
+import { pxOrRaw } from "../utils/px-or-raw";
 import { getAllPropKeys } from "./get-all-prop-keys";
 import { responsiveCssValueFactory } from "./responsive-css-value-factory";
 import { ResponsiveValue } from "./types";
@@ -18,10 +19,10 @@ export const createGrid = (props: GridSystem, theme: BaseTheme): CSSObject[] => 
       const [columnsCount, size = "1fr"] = value as [number, string | number | (string | number)[]];
 
       if (Array.isArray(size)) {
-        return size.map(item => (typeof item === "number" ? `${item}px` : item)).join(" ");
+        return size.map(i => pxOrRaw(i)).join(" ");
       }
 
-      return `repeat(${columnsCount}, ${typeof size === "number" ? `${size}px` : size})`;
+      return `repeat(${columnsCount}, ${pxOrRaw(size)})`;
     }),
   ];
 };

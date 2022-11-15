@@ -18,6 +18,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: lts/*
+          registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
         run: yarn --frozen-lockfile
@@ -26,7 +27,12 @@ jobs:
         run: yarn build
 
       - name: Release
+        run: yarn publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish docs
+        working-directory: docs
+        run: |
+          yarn build
+          yarn deploy

@@ -64,7 +64,11 @@ export interface BaseTheme extends TCustomProps {
    */
   palette: TPalette;
 
-  defaultBorder?: PaletteKey;
+  border?: {
+    color?: PaletteKey;
+    width?: number | string;
+  };
+
   mediaDown: (breakpoint: keyof TBreakpoint) => string;
   mediaUp: (breakpoint: keyof TBreakpoint) => string;
   spacing: (...values: SpacingUnit[]) => string;

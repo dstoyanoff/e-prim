@@ -1,6 +1,7 @@
 import { CSSObject } from "@emotion/react";
 import { BaseTheme, PaletteKey, TRadius, TypographyKey, TZIndex } from "../theme/types";
 import { getValueFromKey } from "../utils/dot-object";
+import { pxOrRaw } from "../utils/px-or-raw";
 import { createValue } from "./create-value";
 import { getAllPropKeys } from "./get-all-prop-keys";
 import { responsiveCssValueFactory } from "./responsive-css-value-factory";
@@ -33,8 +34,12 @@ export const createCssProps = (props: CssPropsSystem, theme: BaseTheme): CSSObje
   } = props;
 
   const colorTransformer = (value: PaletteKey) => getValueFromKey<string>(value, theme.palette);
-  const borderTransformer = (value: PaletteKey | boolean) =>
-    value ? `1px solid ${getValueFromKey(value === true ? theme.defaultBorder : value, theme.palette)}` : undefined;
+  const borderTransformer = (value: PaletteKey | boolean) => {
+    const width = pxOrRaw(theme.border?.width ?? 1);
+    const color = getValueFromKey(value === true ? theme.border?.color : (value as string), theme.palette);
+
+    return `${width} solid ${color}`;
+  };
 
   return [
     responsive("position", position),
