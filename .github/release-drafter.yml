@@ -1,0 +1,40 @@
+name-template: v$RESOLVED_VERSION
+tag-template: v$RESOLVED_VERSION
+categories:
+  - title: Features 🚀
+    labels: [feature]
+  - title: Fixes 🪲
+    labels: [bug]
+  - title: Chores 🧰
+    labels: [chore]
+change-template: "* $TITLE (#$NUMBER) @$AUTHOR"
+no-changes-template: No changes
+version-resolver:
+  major:
+    labels: [major]
+  minor:
+    labels: [feature]
+  patch:
+    labels: [bug, chore]
+  default: minor
+
+template: |
+  ## What's Changed
+
+  $CHANGES
+
+autolabeler:
+  - label: feature
+    branch: ['/feature/{0,1}\/.+/', '/feat/{0,1}\/.+/']
+  - label: bug
+    branch: ['/bugfix/{0,1}\/.+/', '/fix/{0,1}\/.+/', '/bug/{0,1}\/.+/']
+  - label: chore
+    branch: ['/chore/{0,1}\/.+/']
+
+replacers:
+  - search: "[feature]"
+    replace: ""
+  - search: "[bug]"
+    replace: ""
+  - search: "[chore]"
+    replace: ""
