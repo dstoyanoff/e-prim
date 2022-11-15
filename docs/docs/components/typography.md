@@ -3,8 +3,6 @@ title: Typography
 sidebar_position: 2
 ---
 
-## Introduction
-
 After all, the websites are all about text. Typography is heavily used whatever you do, so this component should help you simplify your code and ship faster. It exposes very simple system that you can use to style your texts. Of course, all Box properties are also supported here
 
 ```tsx

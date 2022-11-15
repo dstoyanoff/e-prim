@@ -7,9 +7,5 @@ Full information can be found on the [documentation website](https://dstoyanoff.
 To run the example:
 
 ```sh
-# build the lib
-yarn build
-
-# install example dependencies and start in dev mode
-yarn example
+yarn && yarn example
 ```

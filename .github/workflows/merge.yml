@@ -31,7 +31,7 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: Build
-        run: yarn build
+        run: yarn workspace e-prim build
 
       - name: Add change to release
         uses: release-drafter/release-drafter@v5
@@ -43,15 +43,15 @@ jobs:
         run: |
           node > script <<EOF
             const fs = require("fs");
-            const data = require("./package.json");
+            const data = require("./lib/package.json");
 
             data.version = "${{ steps.release.outputs.name }}".slice(1, "${{ steps.release.outputs.name }}".length);
             
-            fs.writeFile("./package.json", JSON.stringify(data, null, 2), console.error);
+            fs.writeFile("./lib/package.json", JSON.stringify(data, null, 2), console.error);
           EOF
 
       - name: Push versions
         run: |
-          git add ./package.json
+          git add ./lib/package.json
           git commit -m "Bump version - ${{ steps.release.outputs.name }} build ${{ github.run_number }} [skip ci]" || echo "No changes"
           git push

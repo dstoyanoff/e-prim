@@ -3,8 +3,6 @@ title: Grid
 sidebar_position: 4
 ---
 
-## Introduction
-
 As with flex, grid is also widely used for creating layouts. This components exposes some core properties to help you prototype faster. This component is in beta, so any suggestions for additional properties are welcome. As usual, all Box props are also available here.
 
 ```tsx

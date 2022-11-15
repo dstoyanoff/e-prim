@@ -21,7 +21,11 @@ jobs:
           registry-url: https://registry.npmjs.org
           cache: yarn
 
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
       - name: Release
+        working-directory: lib
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -31,9 +35,7 @@ jobs:
         env:
           GIT_USER: dstoyanoff
           GIT_PASS: ${{ secrets.ACTIONS_TOKEN }}
-        run: |
-          yarn
-          yarn deploy
+        run: yarn workspace docs deploy
 
       - name: Publish release
         uses: actions/github-script@v6

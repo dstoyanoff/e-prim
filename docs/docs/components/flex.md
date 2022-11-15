@@ -3,8 +3,6 @@ title: Flex
 sidebar_position: 3
 ---
 
-## Introduction
-
 Most of the times, the layouts are prototyped by extensively using flex layouts. Configuring its CSS can however get very verbose. This component helps by defining some common props that will help you code faster. As expected, the flex component also exposes all properties of the Box, which won't be described here.
 
 ```tsx
