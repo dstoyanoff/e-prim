@@ -17,8 +17,8 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config user.name bot
-          git config user.email github-actions@github.com
+          git config --global user.name bot
+          git config --global user.email github-actions@github.com
 
       - name: Setup node
         uses: actions/setup-node@v3
@@ -41,7 +41,7 @@ jobs:
         working-directory: docs
         env:
           USE_SSH: true
-          GUT_PASS: ${{ secrets.ACTIONS_TOKEN }}
+          GIT_PASS: ${{ secrets.ACTIONS_TOKEN }}
         run: |
           yarn
           yarn build
