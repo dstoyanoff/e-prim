@@ -47,7 +47,7 @@ jobs:
 
             data.version = "${{ steps.release.outputs.name }}";
             
-            fs.writeFile("./.version.json", JSON.stringify(data, null, 2), console.error);
+            fs.writeFile("./package.json", JSON.stringify(data, null, 2), console.error);
           EOF
 
       - name: Push versions
