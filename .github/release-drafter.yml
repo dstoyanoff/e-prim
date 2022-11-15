@@ -1,6 +1,8 @@
 name-template: v$RESOLVED_VERSION
 tag-template: v$RESOLVED_VERSION
 categories:
+  - title: Breaking Changes 🚨
+    labels: [major]
   - title: Features 🚀
     labels: [feature]
   - title: Fixes 🪲
@@ -37,4 +39,6 @@ replacers:
   - search: "[bug]"
     replace: ""
   - search: "[chore]"
+    replace: ""
+  - search: "[major]"
     replace: ""
