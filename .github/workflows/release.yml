@@ -21,6 +21,11 @@ jobs:
           registry-url: https://registry.npmjs.org
           cache: yarn
 
+      - name: Configure Git
+        run: |
+          git config --global user.name bot
+          git config --global user.email github-actions@github.com
+
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
