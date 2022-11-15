@@ -1,23 +1,16 @@
 {
-  "name": "docs",
-  "version": "0.1.0",
+  "name": "example",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "next build"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
-    "e-prim": "file:../dist",
+    "e-prim": "*",
     "next": "13.0.3",
     "react": "^18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "@types/node": "18.11.9",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "18.0.8"
+    "react-dom": "^18.2.0"
   }
 }

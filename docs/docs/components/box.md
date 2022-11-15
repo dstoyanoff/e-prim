@@ -3,8 +3,6 @@ title: Box
 sidebar_position: 1
 ---
 
-## Introduction
-
 The box component is the base of all. It's the most basic component and it should preferably used as a base for every component in your library. It lies on the concept of the `as` prop, where you tell the Box what HTML element to render. Based on that prop, not only the DOM changes, but you will get a full auto-complete of the properties of that specific HTML element that you've selected (thanks [react-polymorphic-box](https://github.com/kripod/react-polymorphic-box) for the inspiration). The default HTML element if none is specified is a plain `div`.
 
 The box also exposes all system properties for your usage, so you can style it easily. Here is a brief of what it looks like:

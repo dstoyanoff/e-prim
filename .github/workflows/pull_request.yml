@@ -1,0 +1,32 @@
+name: Merge
+on:
+  pull_request:
+
+jobs:
+  verify:
+    name: Verify
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Build lib
+        run: yarn workspace e-prim build
+
+      - name: Build example
+        run: yarn workspace example build
+
+      - name: Build docs
+        run: yarn workspace docs build
