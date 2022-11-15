@@ -34,5 +34,6 @@ jobs:
       - name: Publish docs
         working-directory: docs
         run: |
+          yarn
           yarn build
           yarn deploy
