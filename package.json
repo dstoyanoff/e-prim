@@ -1,7 +1,7 @@
 {
   "name": "e-prim",
   "description": "A set of tools to implement a design system on top of @emotion/css and @emotion/react as well as add some primitive components to make prototyping UI faster and easier",
-  "version": "v0.1.0",
+  "version": "1.0.0",
   "author": "Daniel Stoyanoff <dannystoyanoff@gmail.com>",
   "license": "MIT",
   "main": "dist/index.js",
