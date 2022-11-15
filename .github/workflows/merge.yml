@@ -27,12 +27,6 @@ jobs:
           registry-url: https://registry.npmjs.org
           cache: yarn
 
-      - name: Install dependencies
-        run: yarn --frozen-lockfile
-
-      - name: Build
-        run: yarn workspace e-prim build
-
       - name: Add change to release
         uses: release-drafter/release-drafter@v5
         id: release
