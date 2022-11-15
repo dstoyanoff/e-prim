@@ -10,7 +10,7 @@ const config = {
   tagline:
     "A set of tools to implement a design system on top of @emotion/css and @emotion/react as well as add some primitive components to make prototyping UI faster and easier",
   url: "https://dstoyanoff.github.io",
-  baseUrl: "/",
+  baseUrl: "/e-prim",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",

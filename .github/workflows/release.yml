@@ -40,11 +40,10 @@ jobs:
       - name: Publish docs
         working-directory: docs
         env:
-          USE_SSH: true
+          GIT_USER: dstoyanoff
           GIT_PASS: ${{ secrets.ACTIONS_TOKEN }}
         run: |
           yarn
-          yarn build
           yarn deploy
 
       - name: Publish tags
