@@ -39,6 +39,9 @@ jobs:
 
       - name: Publish docs
         working-directory: docs
+        env:
+          USE_SSH: true
+          GUT_PASS: ${{ secrets.ACTIONS_TOKEN }}
         run: |
           yarn
           yarn build
