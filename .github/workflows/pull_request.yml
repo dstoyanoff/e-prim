@@ -1,8 +1,6 @@
 name: Verify
 on:
   pull_request:
-  push:
-    branches: [test-badge]
 
 concurrency:
   group: ci-${{ github.ref }}
