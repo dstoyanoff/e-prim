@@ -2,6 +2,8 @@
 
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dstoyanoff/e-prim/Merge)](https://github.com/dstoyanoff/e-prim/actions)
 [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/dstoyanoff/e-prim?include_prereleases)](https://github.com/dstoyanoff/e-prim/releases)
+![Codecov](https://img.shields.io/codecov/c/github/dstoyanoff/e-prim)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/e-prim@latest)
 [![GitHub issues](https://img.shields.io/github/issues/dstoyanoff/e-prim)](https://github.com/dstoyanoff/e-prim/issues)
 ![GitHub issues](https://img.shields.io/badge/dynamic/json?label=coverage&query=total.lines.prc&suffix=%25&url=https%3A%2F%2Fraw.githubusercontent.com%2Fdstoyanoff%2Fe-prim%2Ftest-badge%2Flib%2Fcoverage%2Fcoverage_summary.json)
 
