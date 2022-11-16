@@ -27,6 +27,9 @@ jobs:
           registry-url: https://registry.npmjs.org
           cache: yarn
 
+      - name: Test
+        run: yarn workspace e-prim test --coverage-reporters=cobertura
+
       - name: Add change to release
         uses: release-drafter/release-drafter@v5
         id: release
@@ -49,3 +52,6 @@ jobs:
           git add ./lib/package.json
           git commit -m "Bump version - ${{ steps.release.outputs.name }} build ${{ github.run_number }} [skip ci]" || echo "No changes"
           git push
+
+      - name: Upload coverage results
+        uses: codecov/codecov-action@v3
