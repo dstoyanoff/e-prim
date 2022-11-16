@@ -1,6 +1,8 @@
 name: Verify
 on:
   pull_request:
+  push:
+    branches: [test-badge]
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -37,3 +39,6 @@ jobs:
 
       - name: Test
         run: yarn workspace e-prim test
+
+      - name: Print
+        run: cat ./lib/coverage/coverage-summary.json
