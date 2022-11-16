@@ -1,22 +1,29 @@
-import { CSSObject } from "@emotion/react";
 import { BaseTheme, SpacingUnit } from "../theme/types";
-import { FixedLengthArray } from "../utils/fixed-length-array";
+import { singleOrMulti } from "../utils/array-utils";
+import { FixedLengthArray } from "../utils/array-utils";
 import { getAllPropKeys } from "./get-all-prop-keys";
-import { responsiveCssValueFactory } from "./responsive-css-value-factory";
-import { ResponsiveValue } from "./types";
+import { responsiveCssValueFactory, ValueTransformer } from "./responsive-css-value-factory";
+import { CssProperties, ResponsiveValue } from "./types";
 
-export const createMargins = (props: MarginSystem, theme: BaseTheme): CSSObject[] => {
+export const createMargins = (props: MarginSystem, theme: BaseTheme): CssProperties[] => {
   const { spacing } = theme;
   const { m, mx, my, mt, mr, mb, ml } = props;
+
+  const spacingTransformer: ValueTransformer<"margin", SpacingUnit | SpacingUnit[]> = value =>
+    spacing(...singleOrMulti(value));
 
   const responsive = responsiveCssValueFactory(theme);
 
   return [
-    responsive("margin", m, v => spacing(...((Array.isArray(v) ? v : [v]) as SpacingUnit[]))),
-    responsive("marginTop", mt ?? my, value => spacing(value as SpacingUnit)),
-    responsive("marginRight", mr ?? mx, value => spacing(value as SpacingUnit)),
-    responsive("marginBottom", mb ?? my, value => spacing(value as SpacingUnit)),
-    responsive("marginLeft", ml ?? mx, value => spacing(value as SpacingUnit)),
+    responsive("margin", m as SpacingUnit | ResponsiveValue<SpacingUnit>, spacingTransformer),
+    responsive("marginTop", my, spacingTransformer),
+    responsive("marginTop", mt, spacingTransformer),
+    responsive("marginRight", mx, spacingTransformer),
+    responsive("marginRight", mr, spacingTransformer),
+    responsive("marginBottom", my, spacingTransformer),
+    responsive("marginBottom", mb, spacingTransformer),
+    responsive("marginLeft", mx, spacingTransformer),
+    responsive("marginLeft", ml, spacingTransformer),
   ];
 };
 

@@ -1,22 +1,29 @@
-import { CSSObject } from "@emotion/react";
 import { BaseTheme, SpacingUnit } from "../theme/types";
-import { FixedLengthArray } from "../utils/fixed-length-array";
+import { singleOrMulti } from "../utils/array-utils";
+import { FixedLengthArray } from "../utils/array-utils";
 import { getAllPropKeys } from "./get-all-prop-keys";
-import { responsiveCssValueFactory } from "./responsive-css-value-factory";
-import { ResponsiveValue } from "./types";
+import { responsiveCssValueFactory, ValueTransformer } from "./responsive-css-value-factory";
+import { CssProperties, ResponsiveValue } from "./types";
 
-export const createPaddings = (props: PaddingSystem, theme: BaseTheme): CSSObject[] => {
+export const createPaddings = (props: PaddingSystem, theme: BaseTheme): CssProperties[] => {
   const { spacing } = theme;
   const { p, px, py, pt, pr, pb, pl } = props;
+
+  const spacingTransformer: ValueTransformer<"padding", SpacingUnit | SpacingUnit[]> = value =>
+    spacing(...singleOrMulti(value));
 
   const responsive = responsiveCssValueFactory(theme);
 
   return [
-    responsive("padding", p, v => spacing(...((Array.isArray(v) ? v : [v]) as SpacingUnit[]))),
-    responsive("paddingTop", pt ?? py, value => spacing(value as SpacingUnit)),
-    responsive("paddingRight", pr ?? px, value => spacing(value as SpacingUnit)),
-    responsive("paddingBottom", pb ?? py, value => spacing(value as SpacingUnit)),
-    responsive("paddingLeft", pl ?? px, value => spacing(value as SpacingUnit)),
+    responsive("padding", p as SpacingUnit | ResponsiveValue<SpacingUnit>, spacingTransformer),
+    responsive("paddingTop", py, spacingTransformer),
+    responsive("paddingTop", pt, spacingTransformer),
+    responsive("paddingRight", px, spacingTransformer),
+    responsive("paddingRight", pr, spacingTransformer),
+    responsive("paddingBottom", py, spacingTransformer),
+    responsive("paddingBottom", pb, spacingTransformer),
+    responsive("paddingLeft", px, spacingTransformer),
+    responsive("paddingLeft", pl, spacingTransformer),
   ];
 };
 

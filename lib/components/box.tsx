@@ -39,7 +39,7 @@ export const Box: <E extends ElementType = typeof DEFAULT_TAG>(props: BoxProps<E
           ...combineResponsiveValues(
             ...createCssProps(props, theme),
             ...createMargins(props, theme),
-            ...createPaddings(props, theme)
+            ...createPaddings(props, theme),
           ),
           ...(clickable && {
             cursor: "pointer",
@@ -49,5 +49,5 @@ export const Box: <E extends ElementType = typeof DEFAULT_TAG>(props: BoxProps<E
         as={undefined}
       />
     );
-  }
+  },
 );

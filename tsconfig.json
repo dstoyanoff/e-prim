@@ -1,5 +1,5 @@
 {
-  "references": [{ "path": "./docs" }, { "path": "./example" }, { "path": "./lib" }],
+  "references": [{ "path": "./example" }, { "path": "./lib" }],
   "files": [],
   "include": [],
   "exclude": ["**/node_modules"]

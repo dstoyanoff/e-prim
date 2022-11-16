@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`icon should render icon 1`] = `
+.emotion-0 {
+  width: 32px;
+  height: 32px;
+  color: #898896;
+}
+
+<div>
+  <svg
+    class="emotion-0"
+    fill="none"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M4 12H20M20 12L12 4M20 12L12 20"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</div>
+`;

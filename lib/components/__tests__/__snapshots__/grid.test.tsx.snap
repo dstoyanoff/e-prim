@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`grid should render grid 1`] = `
+.emotion-0 {
+  width: 100%;
+  padding: 12px;
+  display: grid;
+}
+
+@media (min-width: 0px) {
+  .emotion-0 {
+    gap: 4px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 500px) {
+  .emotion-0 {
+    gap: 12px;
+    grid-template-columns: 100px 20%;
+  }
+}
+
+<div>
+  <div
+    class="emotion-0"
+  >
+    <div>
+      child1
+    </div>
+    <div>
+      child2
+    </div>
+  </div>
+</div>
+`;

@@ -1,20 +1,29 @@
-import { CSSObject } from "@emotion/react";
 import { BaseTheme, SpacingUnit } from "../theme/types";
 import { getAllPropKeys } from "./get-all-prop-keys";
-import { responsiveCssValueFactory } from "./responsive-css-value-factory";
-import { ResponsiveValue } from "./types";
+import { responsiveCssValueFactory, ValueTransformer } from "./responsive-css-value-factory";
+import { CssProperties, ResponsiveValue } from "./types";
 
-export const createFlex = (props: FlexSystem, theme: BaseTheme): CSSObject[] => {
+export const createFlex = (props: FlexSystem, theme: BaseTheme): CssProperties[] => {
   const { spacing } = theme;
   const { direction, center, centerMain, centerCross, gap, justify, align } = props;
+
+  const centerTransformer: ValueTransformer<"alignItems" | "justifyContent", boolean> = value =>
+    value ? "center" : undefined;
 
   const responsive = responsiveCssValueFactory(theme);
 
   return [
     { display: "flex" },
     responsive("flexDirection", direction),
-    responsive("alignItems", center || centerCross ? "center" : align),
-    responsive("justifyContent", center || centerMain ? "center" : justify),
+
+    responsive("alignItems", align),
+    responsive("alignItems", centerCross, centerTransformer),
+    responsive("alignItems", center, centerTransformer),
+
+    responsive("justifyContent", justify),
+    responsive("justifyContent", centerMain, centerTransformer),
+    responsive("justifyContent", center, centerTransformer),
+
     responsive("gap", gap, value => spacing(value as SpacingUnit)),
   ];
 };
@@ -33,7 +42,7 @@ export type FlexSystem = {
   /**
    * How to order items (flex-direction)
    */
-  direction?: ResponsiveValue<CSSObject["flexDirection"]>;
+  direction?: ResponsiveValue<CssProperties["flexDirection"]>;
 
   /**
    * Centers the items on both axises (justify-content: center, align-items: center)
@@ -58,10 +67,10 @@ export type FlexSystem = {
   /**
    * Applies justify-content to the elements. It has lower priority than center/centerMain/centerCross
    */
-  justify?: ResponsiveValue<CSSObject["justifyContent"]>;
+  justify?: ResponsiveValue<CssProperties["justifyContent"]>;
 
   /**
    * Applies align-items to the elements. It has lower priority than center/centerMain/centerCross
    */
-  align?: ResponsiveValue<CSSObject["alignItems"]>;
+  align?: ResponsiveValue<CssProperties["alignItems"]>;
 };

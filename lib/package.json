@@ -13,7 +13,8 @@
   "scripts": {
     "dev": "yarn --cwd ./docs dev",
     "example": "yarn --cwd ./example install && yarn --cwd ./example dev",
-    "build": "tsup"
+    "build": "tsup",
+    "test": "jest"
   },
   "peerDependencies": {
     "@emotion/react": ">11",
