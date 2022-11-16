@@ -31,8 +31,6 @@ jobs:
 
       - name: Verify bundle size
         run: yarn workspace e-prim bundlewatch
-        env:
-          BUNDLEWATCH_GITHUB_TOKEN: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
 
       - name: Build example
         run: yarn workspace example build
