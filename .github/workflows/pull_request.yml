@@ -31,6 +31,11 @@ jobs:
       - name: Build lib
         run: yarn workspace e-prim build
 
+      - name: Verify bundle size
+        run: yarn workspace e-prim bundlewatch
+        env:
+          BUNDLEWATCH_GITHUB_TOKEN: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
+
       - name: Build example
         run: yarn workspace example build
 
@@ -38,7 +43,9 @@ jobs:
         run: yarn workspace docs build
 
       - name: Test
-        run: yarn workspace e-prim test --coverage-reporters=json-summary
+        run: yarn workspace e-prim test --coverage-reports=json-summary
 
-      - name: Print
-        run: cat ./lib/coverage/coverage-summary.json
+      - name: Upload coverage results
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./lib/coverage/coverage-summary.json

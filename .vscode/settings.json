@@ -1,4 +1,13 @@
 {
-  "cSpell.words": ["automagically", "conventionalcommits", "dstoyanoff", "keyof", "Stoyanoff", "tsup"],
+  "cSpell.words": [
+    "automagically",
+    "bundlewatch",
+    "codecov",
+    "conventionalcommits",
+    "dstoyanoff",
+    "keyof",
+    "Stoyanoff",
+    "tsup"
+  ],
   "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -14,7 +14,8 @@
     "dev": "yarn --cwd ./docs dev",
     "example": "yarn --cwd ./example install && yarn --cwd ./example dev",
     "build": "tsup",
-    "test": "jest"
+    "test": "jest",
+    "bundlewatch": "bundlewatch --config .bundlewatch.config.js"
   },
   "peerDependencies": {
     "@emotion/react": ">11",

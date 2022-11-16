@@ -14,6 +14,4 @@ yarn-error.log
 !.yarn/sdks
 !.yarn/versions
 
-lib/coverage/**
-!lib/coverage/coverage-summary.json
-
+**/coverage/**
