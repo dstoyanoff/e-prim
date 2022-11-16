@@ -39,7 +39,7 @@ jobs:
         run: yarn workspace docs build
 
       - name: Test
-        run: yarn workspace e-prim test --coverage-reports=json-summary
+        run: yarn workspace e-prim test --coverage-reporters=json-summary
 
       - name: Upload coverage results
         uses: codecov/codecov-action@v3
