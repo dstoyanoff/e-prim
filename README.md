@@ -5,7 +5,6 @@
 ![Codecov](https://img.shields.io/codecov/c/github/dstoyanoff/e-prim)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/e-prim@latest)
 [![GitHub issues](https://img.shields.io/github/issues/dstoyanoff/e-prim)](https://github.com/dstoyanoff/e-prim/issues)
-![GitHub issues](https://img.shields.io/badge/dynamic/json?label=coverage&query=total.lines.prc&suffix=%25&url=https%3A%2F%2Fraw.githubusercontent.com%2Fdstoyanoff%2Fe-prim%2Ftest-badge%2Flib%2Fcoverage%2Fcoverage_summary.json)
 
 A tiny (< 3KB gzipped) set of tools to implement a design system on top of @emotion/css and @emotion/react as well as add some primitive components to make prototyping UI faster and easier
 
