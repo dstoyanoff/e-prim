@@ -16,16 +16,16 @@ export const theme = {
       dark: "#cbb700",
     },
     neutral: {
-      "0": "#ffffff",
-      "1": "#f5f5f5",
-      "2": "#edecf0",
-      "3": "#d8d7df",
-      "4": "#898896",
-      "5": "#666472",
-      "6": "#424149",
-      "7": "#27262c",
-      "8": "#131316",
-      "9": "#050505",
+      0: "#ffffff",
+      1: "#f5f5f5",
+      2: "#edecf0",
+      3: "#d8d7df",
+      4: "#898896",
+      5: "#666472",
+      6: "#424149",
+      7: "#27262c",
+      8: "#131316",
+      9: "#050505",
     },
   },
   radius: {
@@ -96,7 +96,13 @@ type Radius = typeof theme.radius;
 
 type CustomProps = Omit<
   typeof theme,
-  "breakpoint" | "spacing" | "palette" | "radius" | "zIndex" | "typography" | "defaultBorder"
+  | "breakpoint"
+  | "spacing"
+  | "palette"
+  | "radius"
+  | "zIndex"
+  | "typography"
+  | "defaultBorder"
 >;
 
 declare module "e-prim" {

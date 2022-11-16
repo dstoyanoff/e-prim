@@ -20,7 +20,10 @@ export interface TTypography {}
 export interface TCustomProps {}
 
 export type PaletteKey = Join<PathsToStringProps<TPalette>> | "transparent";
-export type TypographyKey = Join<PathsToStringProps<TTypography, TypographySpecs>> | "default";
+
+export type TypographyKey =
+  | Join<PathsToStringProps<TTypography, TypographySpecs>>
+  | "default";
 
 export interface BaseTheme extends TCustomProps {
   /**
@@ -80,7 +83,7 @@ interface TypographyConfig {
 }
 
 interface ColorConfig {
-  [index: string]: CSSObject["color"] | ColorConfig;
+  [index: string | number]: CSSObject["color"] | ColorConfig;
 }
 
 export type ThemeConfig = {
