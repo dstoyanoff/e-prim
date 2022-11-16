@@ -13,7 +13,7 @@ const config = {
     "!dist/**",
     "!jest-setup-after-env.ts",
   ],
-  coverageReporters: ["text-summary", "text", "html"],
+  coverageReporters: ["text-summary", "text"],
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
   testEnvironment: "node",
   transform: {

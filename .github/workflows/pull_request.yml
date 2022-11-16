@@ -29,6 +29,9 @@ jobs:
       - name: Build lib
         run: yarn workspace e-prim build
 
+      - name: Verify bundle size
+        run: yarn workspace e-prim bundlewatch
+
       - name: Build example
         run: yarn workspace example build
 
@@ -36,4 +39,9 @@ jobs:
         run: yarn workspace docs build
 
       - name: Test
-        run: yarn workspace e-prim test
+        run: yarn workspace e-prim test --coverage-reporters=json-summary
+
+      - name: Upload coverage results
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./lib/coverage/coverage-summary.json
