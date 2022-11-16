@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`flex should render flex 1`] = `
+.emotion-0 {
+  width: 500px;
+  height: 50%;
+  color: #898896;
+  background: #00659e;
+  font-family: Mulish;
+  font-size: 11px;
+  font-weight: 400;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  padding: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+@media (min-width: 0px) {
+  .emotion-0 {
+    gap: 4px;
+  }
+}
+
+@media (min-width: 500px) {
+  .emotion-0 {
+    gap: 16px;
+  }
+}
+
+<div>
+  <div
+    class="emotion-0"
+  >
+    child
+  </div>
+</div>
+`;

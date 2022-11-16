@@ -1,14 +1,13 @@
-import { CSSObject } from "@emotion/react";
 import { BaseTheme, PaletteKey, TRadius, TypographyKey, TZIndex } from "../theme/types";
 import { getValueFromKey } from "../utils/dot-object";
 import { pxOrRaw } from "../utils/px-or-raw";
 import { createValue } from "./create-value";
 import { getAllPropKeys } from "./get-all-prop-keys";
 import { responsiveCssValueFactory } from "./responsive-css-value-factory";
-import { ResponsiveValue } from "./types";
+import { CssProperties, ResponsiveValue } from "./types";
 import { getTypographyStyles } from "./typography-system";
 
-export const createCssProps = (props: CssPropsSystem, theme: BaseTheme): CSSObject[] => {
+export const createCssProps = (props: CssPropsSystem, theme: BaseTheme): CssProperties[] => {
   const responsive = responsiveCssValueFactory(theme);
   const {
     height,
@@ -49,7 +48,7 @@ export const createCssProps = (props: CssPropsSystem, theme: BaseTheme): CSSObje
     responsive("minHeight", minHeight),
     responsive("height", height),
     responsive("maxHeight", maxHeight),
-    responsive("borderRadius", radius, value => theme.radius[value as keyof TRadius]),
+    responsive("borderRadius", radius, value => theme.radius[value]),
 
     createValue("color", color, colorTransformer),
     createValue("background", background, colorTransformer),
@@ -62,7 +61,7 @@ export const createCssProps = (props: CssPropsSystem, theme: BaseTheme): CSSObje
 
     createValue("zIndex", zIndex, value => theme.zIndex[value as keyof TZIndex]),
 
-    { cursor, overflow, ...getTypographyStyles(typography, theme.typography) },
+    { cursor, overflow, ...(typography && getTypographyStyles(typography, theme.typography)) },
 
     responsive("flexGrow", grow),
   ];
@@ -92,18 +91,18 @@ export const cssPropsKeys = getAllPropKeys<CssPropsSystem>({
 });
 
 export type PositionProps = {
-  position?: ResponsiveValue<CSSObject["position"]>;
-  overflow?: CSSObject["overflow"];
+  position?: ResponsiveValue<CssProperties["position"]>;
+  overflow?: CssProperties["overflow"];
 };
 
 export type SizeProps = {
-  minWidth?: ResponsiveValue<CSSObject["minWidth"]>;
-  width?: ResponsiveValue<CSSObject["width"]>;
-  maxWidth?: ResponsiveValue<CSSObject["maxWidth"]>;
-  minHeight?: ResponsiveValue<CSSObject["minHeight"]>;
-  height?: ResponsiveValue<CSSObject["height"]>;
-  maxHeight?: ResponsiveValue<CSSObject["maxHeight"]>;
-  grow?: ResponsiveValue<CSSObject["flexGrow"]>;
+  minWidth?: ResponsiveValue<CssProperties["minWidth"]>;
+  width?: ResponsiveValue<CssProperties["width"]>;
+  maxWidth?: ResponsiveValue<CssProperties["maxWidth"]>;
+  minHeight?: ResponsiveValue<CssProperties["minHeight"]>;
+  height?: ResponsiveValue<CssProperties["height"]>;
+  maxHeight?: ResponsiveValue<CssProperties["maxHeight"]>;
+  grow?: ResponsiveValue<CssProperties["flexGrow"]>;
 };
 
 export type ColorProps = {
@@ -117,14 +116,14 @@ export type BorderProps = {
   borderRight?: PaletteKey | boolean;
   borderBottom?: PaletteKey | boolean;
   borderLeft?: PaletteKey | boolean;
-  radius?: ResponsiveValue<TRadius>;
+  radius?: ResponsiveValue<keyof TRadius>;
 };
 
 export type CssPropsSystem = PositionProps &
   SizeProps &
   ColorProps &
   BorderProps & {
-    cursor?: CSSObject["cursor"];
+    cursor?: CssProperties["cursor"];
     zIndex?: keyof TZIndex;
     typography?: TypographyKey;
   };

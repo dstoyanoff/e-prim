@@ -34,3 +34,6 @@ jobs:
 
       - name: Build docs
         run: yarn workspace docs build
+
+      - name: Test
+        run: yarn workspace e-prim test

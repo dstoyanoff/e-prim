@@ -1,7 +1,11 @@
-import { CSSObject } from "@emotion/react";
 import { BaseTheme, TBreakpoint } from "../theme/types";
 import { isResponsiveValue } from "../utils/is-responsive-value";
-import { ResponsiveValue } from "./types";
+import { createValue } from "./create-value";
+import { CssProperties, ResponsiveValue } from "./types";
+
+export type ValueTransformer<PropName extends keyof CssProperties, TValue = CssProperties[PropName]> = (
+  value: TValue,
+) => CssProperties[PropName];
 
 /**
  * Creates a responsive value that can be passed as a normal property or a map of props per breakpoint
@@ -14,25 +18,17 @@ import { ResponsiveValue } from "./types";
  */
 export const responsiveCssValueFactory =
   (theme: BaseTheme) =>
-  <PropName extends keyof CSSObject, TValue>(
+  <PropName extends keyof CssProperties, TValue = CssProperties[PropName]>(
     propName: PropName,
-    value: ResponsiveValue<CSSObject[PropName]> | ResponsiveValue<TValue> | undefined,
-    valueTransform: (
-      value: ResponsiveValue<CSSObject[PropName]> | ResponsiveValue<TValue>
-    ) => ResponsiveValue<CSSObject[PropName]> = value => value as ResponsiveValue<CSSObject[PropName]>
-  ): CSSObject => {
+    value: ResponsiveValue<TValue> | undefined,
+    valueTransform: ValueTransformer<PropName, TValue> = value => value as unknown as CssProperties[PropName],
+  ): CssProperties => {
     if (value == null) {
       return {};
     }
 
-    if (!isResponsiveValue(value as ResponsiveValue<unknown>, theme.breakpoint)) {
-      const transformedValue = valueTransform(value);
-
-      return {
-        ...(transformedValue != null && {
-          [propName]: transformedValue,
-        }),
-      };
+    if (!isResponsiveValue(value as ResponsiveValue<TValue>, theme.breakpoint)) {
+      return createValue(propName, value as TValue, valueTransform);
     }
 
     const { mediaUp } = theme;

@@ -20,9 +20,9 @@ The API of the flex component is very simple, yet giving some level of abstracti
 /**
  * direction, justify and align are basically just exposing the CSS properties to the component, using a name that is slightly shorter
  */
-direction?: ResponsiveValue<CSSObject["flexDirection"]>;
-justify?: ResponsiveValue<CSSObject["justifyContent"]>;
-align?: ResponsiveValue<CSSObject["alignItems"]>;
+direction?: ResponsiveValue<CssProperties["flexDirection"]>;
+justify?: ResponsiveValue<CssProperties["justifyContent"]>;
+align?: ResponsiveValue<CssProperties["alignItems"]>;
 
 /**
  * The gap has the same system as margins and paddings,

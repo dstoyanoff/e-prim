@@ -93,7 +93,10 @@ export const theme = {
     },
   },
   customThemeProp: 1,
-  defaultBorder: "neutral.3",
+  border: {
+    color: "neutral.3" as const,
+    width: 1,
+  },
 };
 ```
 
@@ -105,7 +108,7 @@ There is also a `ThemeConfig` interface that can guide you through the configura
 - `typography` - defining your typography styles is crucial for consistency. As with the colors, the structure here is completely up to you with the exception of the `default` property, which contains the base typography styles. All other styles inherit from it, so you don't you can omit the repeating styles (like for example the font-family) and only override what's different
 - `radius` - defines a list of accepted border radiuses to use in the app. As with the previous configs, the keys of the object are later used as property values. The values can be both numbers or strings (e.g. percentage, vw or any other CSS-accepted value)
 - `zIndex` - defines a list of accepted zIndexes. Defining those in a common place reduces the risks of getting bugs with overlapping contents in your app. We recommend using a slight interval (10/100) to allow adding additional values later on.
-- `defaultBorder` - often times the border that you would use in your app would be the same color. Defining a color token here would remove the need of specifying the color manually every time you need a default border
+- `border` - often times the border that you would use in your app would be the same color and width. Defining a color and width tokens here would remove the need of specifying them manually every time you need a default border
 - `...customThemeProp` - you can add any other property to the theme as you would do with the regular emotion theme and that would be available in the theme object when using the `css` property or `useTheme`
 
 ## Types Augmentation
@@ -121,7 +124,7 @@ type Radius = typeof theme.radius;
 
 type CustomProps = Omit<
   typeof theme,
-  "breakpoint" | "spacing" | "palette" | "radius" | "zIndex" | "typography" | "defaultBorder"
+  "breakpoint" | "spacing" | "palette" | "radius" | "zIndex" | "typography" | "border"
 >;
 
 declare module "e-prim" {

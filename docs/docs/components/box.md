@@ -41,7 +41,7 @@ When a property is defined a responsive one, you choose whether to just specify 
 
 The full box API is described below.
 
-As a base, the box inherits `ComponentProps<E>`, where `E` extends React's `ElementType`. This gives us all HTML properties, which we won't describe here, but only the added ones. The CSSObject type is the one exported from `@emotion/react`
+As a base, the box inherits `ComponentProps<E>`, where `E` extends React's `ElementType`. This gives us all HTML properties, which we won't describe here, but only the added ones
 
 ```ts
 /**
@@ -61,7 +61,7 @@ color?: PaletteKey;
 
 /**
  * The borders have the same logic as the colors, with the addition of a boolean variant of the prop.
- * If passed as boolean, this would use the defaultBorder that you've defined in the theme.
+ * If passed as boolean, this would use the default border that you've defined in the theme.
  * All border props use the width defined in the theme (or 1px if not provided).
  * If you need a variable width, you should use the regular CSS props approach
  */
@@ -96,16 +96,16 @@ typography?: TypographyKey;
  * Their value is not modified in any form, except for responsiveness, where defined
  */
 
-position?: ResponsiveValue<CSSObject["position"]>;
-overflow?: CSSObject["overflow"];
-minWidth?: ResponsiveValue<CSSObject["minWidth"]>;
-width?: ResponsiveValue<CSSObject["width"]>;
-maxWidth?: ResponsiveValue<CSSObject["maxWidth"]>;
-minHeight?: ResponsiveValue<CSSObject["minHeight"]>;
-height?: ResponsiveValue<CSSObject["height"]>;
-maxHeight?: ResponsiveValue<CSSObject["maxHeight"]>;
-grow?: ResponsiveValue<CSSObject["flexGrow"]>;
+position?: ResponsiveValue<CssProperties["position"]>;
+overflow?: CssProperties["overflow"];
+minWidth?: ResponsiveValue<CssProperties["minWidth"]>;
+width?: ResponsiveValue<CssProperties["width"]>;
+maxWidth?: ResponsiveValue<CssProperties["maxWidth"]>;
+minHeight?: ResponsiveValue<CssProperties["minHeight"]>;
+height?: ResponsiveValue<CssProperties["height"]>;
+maxHeight?: ResponsiveValue<CssProperties["maxHeight"]>;
+grow?: ResponsiveValue<CssProperties["flexGrow"]>;
 
 // cursor: pointer and userSelect: none are automatically applied for elements with onClick handler provided, so you don't have to pass it for clickable elements
-cursor?: CSSObject["cursor"];
+cursor?: CssProperties["cursor"];
 ```

@@ -1,11 +1,10 @@
-import { CSSObject } from "@emotion/react";
 import { BaseTheme, SpacingUnit } from "../theme/types";
 import { pxOrRaw } from "../utils/px-or-raw";
 import { getAllPropKeys } from "./get-all-prop-keys";
 import { responsiveCssValueFactory } from "./responsive-css-value-factory";
-import { ResponsiveValue } from "./types";
+import { CssProperties, ResponsiveValue } from "./types";
 
-export const createGrid = (props: GridSystem, theme: BaseTheme): CSSObject[] => {
+export const createGrid = (props: GridSystem, theme: BaseTheme): CssProperties[] => {
   const { spacing } = theme;
   const { columns, gap } = props;
 
@@ -47,5 +46,5 @@ export type GridSystem = {
    * array - applies the given values using the above logic, but without repeat
    * @default 1fr
    */
-  columns?: [ResponsiveValue<number>, ResponsiveValue<string | number | (string | number)[]>?];
+  columns?: ResponsiveValue<[number, (string | number | (string | number)[])?]>;
 };

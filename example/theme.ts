@@ -83,7 +83,7 @@ export const theme = {
   },
   customThemeProp: 1,
   border: {
-    color: "neutral.3",
+    color: "neutral.3" as const,
     width: 1,
   },
 };
@@ -96,13 +96,7 @@ type Radius = typeof theme.radius;
 
 type CustomProps = Omit<
   typeof theme,
-  | "breakpoint"
-  | "spacing"
-  | "palette"
-  | "radius"
-  | "zIndex"
-  | "typography"
-  | "defaultBorder"
+  "breakpoint" | "spacing" | "palette" | "radius" | "zIndex" | "typography" | "defaultBorder"
 >;
 
 declare module "e-prim" {

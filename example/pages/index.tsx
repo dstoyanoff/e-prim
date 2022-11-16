@@ -1,5 +1,10 @@
+import styled from "@emotion/styled";
 import { Box, Flex, Grid, Typography } from "e-prim";
 import { ArrowIcon } from "../arrow-icon";
+
+const StyledBox = styled(Box)(({ theme: { palette } }) => ({
+  color: palette.warning.normal,
+}));
 
 export default function () {
   return (
@@ -7,19 +12,19 @@ export default function () {
       <Typography variant="title.1">e-prim</Typography>
 
       <Typography variant="body.1">
-        A set of tools to implement a design system on top of @emotion/css and
-        @emotion/react as well as add some primitive components to make
-        prototyping UI faster and easier
+        A set of tools to implement a design system on top of @emotion/css and @emotion/react as well as add some
+        primitive components to make prototyping UI faster and easier
       </Typography>
 
-      <ArrowIcon color="neutral.0" size={32} />
+      <ArrowIcon color="success.normal" size={32} />
 
       <Box
         label="link"
         onClick={console.log}
         p={4}
-        css={({ breakpoint }) => ({
+        css={({ breakpoint, palette }) => ({
           width: breakpoint.md,
+          color: palette.neutral[0],
         })}
       >
         <Typography variant="title.1" p={4}>
@@ -27,7 +32,9 @@ export default function () {
         </Typography>
       </Box>
 
-      <Flex direction="column" gap={4} p={4}>
+      <StyledBox>Styled Text</StyledBox>
+
+      <Flex direction={{ xs: "column", md: "row" }} gap={{ xs: 2, md: 4 }} p={4}>
         <Box>item1</Box>
         <Box>item2</Box>
       </Flex>
@@ -36,6 +43,13 @@ export default function () {
         <Box>item1</Box>
         <Box>item2</Box>
       </Grid>
+
+      <Grid
+        columns={{
+          xs: [2],
+          md: [1, 100],
+        }}
+      />
     </Flex>
   );
 }

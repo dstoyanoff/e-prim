@@ -1,12 +1,12 @@
-import { CSSObject } from "@emotion/react";
+import { CssProperties } from "../system/types";
 import { Join, PathsToStringProps } from "../utils/dot-object";
 
 export type TypographySpecs = {
-  fontFamily?: CSSObject["fontFamily"];
-  fontSize?: CSSObject["fontSize"];
-  fontWeight?: CSSObject["fontWeight"];
-  lineHeight?: CSSObject["lineHeight"];
-  letterSpacing?: CSSObject["letterSpacing"];
+  fontFamily?: CssProperties["fontFamily"];
+  fontSize?: CssProperties["fontSize"];
+  fontWeight?: CssProperties["fontWeight"];
+  lineHeight?: CssProperties["lineHeight"];
+  letterSpacing?: CssProperties["letterSpacing"];
 };
 
 export type SpacingUnit = string | number;
@@ -21,9 +21,7 @@ export interface TCustomProps {}
 
 export type PaletteKey = Join<PathsToStringProps<TPalette>> | "transparent";
 
-export type TypographyKey =
-  | Join<PathsToStringProps<TTypography, TypographySpecs>>
-  | "default";
+export type TypographyKey = Join<PathsToStringProps<TTypography, TypographySpecs>> | "default";
 
 export interface BaseTheme extends TCustomProps {
   /**
@@ -83,16 +81,20 @@ interface TypographyConfig {
 }
 
 interface ColorConfig {
-  [index: string | number]: CSSObject["color"] | ColorConfig;
+  [index: string | number]: CssProperties["color"] | ColorConfig;
 }
 
-export type ThemeConfig = {
+export type ThemeConfig = TCustomProps & {
   spacing: number;
-  breakpoint: Record<string, number>;
-  radius: Record<string, CSSObject["borderRadius"]>;
-  zIndex: Record<string, CSSObject["zIndex"]>;
+  breakpoint: TBreakpoint;
+  radius: TRadius;
+  zIndex: TZIndex;
   palette: ColorConfig;
   typography: TypographyConfig;
+  border?: {
+    color: PaletteKey;
+    width: number | string;
+  };
 };
 
 declare module "@emotion/react" {

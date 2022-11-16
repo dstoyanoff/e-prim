@@ -34,6 +34,6 @@ noWrap?: boolean;
  * The following properties are just raw CSS properties exposed as component props for convenience.
  * Their value is not modified in any form, except for responsiveness, where defined
  */
-align?: ResponsiveValue<CSSObject["textAlign"]>;
-textOverflow?: ResponsiveValue<CSSObject["textOverflow"]>;
+align?: ResponsiveValue<CssProperties["textAlign"]>;
+textOverflow?: ResponsiveValue<CssProperties["textOverflow"]>;
 ```

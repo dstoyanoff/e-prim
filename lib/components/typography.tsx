@@ -9,10 +9,10 @@ const DEFAULT_TAG = "span";
 
 type OwnProps = TypographySystem;
 
-export type TypographyProps<E extends ElementType> = BoxProps<E> & OwnProps;
+export type TypographyProps<E extends ElementType> = Omit<BoxProps<E>, "typography"> & OwnProps;
 
 export const Typography: <E extends ElementType = typeof DEFAULT_TAG>(
-  props: TypographyProps<E>
+  props: TypographyProps<E>,
 ) => ReactElement | null = forwardRef(
   <E extends ElementType = typeof DEFAULT_TAG>(props: OwnProps, ref: Ref<TypographyProps<E>["as"]>) => {
     return (
@@ -22,5 +22,5 @@ export const Typography: <E extends ElementType = typeof DEFAULT_TAG>(
         css={theme => combineResponsiveValues(...createTypography(props, theme))}
       />
     );
-  }
+  },
 );

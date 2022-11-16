@@ -1,16 +1,10 @@
 export type PathsToStringProps<T, TStopType = string> = T extends TStopType
   ? []
   : {
-      [K in Extract<keyof T, string | number>]: [
-        K,
-        ...PathsToStringProps<T[K], TStopType>
-      ];
+      [K in Extract<keyof T, string | number>]: [K, ...PathsToStringProps<T[K], TStopType>];
     }[Extract<keyof T, string | number>];
 
-export type Join<
-  T extends (string | number)[],
-  D extends string = "."
-> = T extends []
+export type Join<T extends (string | number)[], D extends string = "."> = T extends []
   ? never
   : T extends [infer F]
   ? F
@@ -25,13 +19,9 @@ export type Join<
  * @param key dot-based path
  * @param object reference to the main object that should be used to find the value
  */
-export const getValueFromKey = <
-  TValue,
-  TKey extends string = string,
-  TObject = {}
->(
+export const getValueFromKey = <TValue, TKey extends string = string, TObject = {}>(
   key: TKey | undefined,
-  object: TObject
+  object: TObject,
 ): TValue | undefined => {
   if (!key) {
     return undefined;
