@@ -9,7 +9,10 @@ const DEFAULT_TAG = "span";
 
 type OwnProps = TypographySystem;
 
-export type TypographyProps<E extends ElementType> = Omit<BoxProps<E>, "typography"> & OwnProps;
+export type TypographyProps<E extends ElementType> = Omit<BoxProps<E>, "typography"> &
+  OwnProps & {
+    as?: E;
+  };
 
 export const Typography: <E extends ElementType = typeof DEFAULT_TAG>(
   props: TypographyProps<E>,

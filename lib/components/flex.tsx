@@ -8,7 +8,10 @@ const DEFAULT_TAG = "div";
 
 type OwnProps = FlexSystem;
 
-export type FlexProps<E extends ElementType> = BoxProps<E> & OwnProps;
+export type FlexProps<E extends ElementType> = BoxProps<E> &
+  OwnProps & {
+    as?: E;
+  };
 
 /**
  * The Flex component is a primitive that exposes useful properties for faster prototyping of flex layouts

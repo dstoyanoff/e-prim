@@ -11,7 +11,7 @@ export default function () {
     <Flex direction="column" gap={4} p={4} width="100%" m={{ xs: 2, md: 4 }}>
       <Typography variant="title.1">e-prim</Typography>
 
-      <Typography variant="body.1">
+      <Typography variant="body.1" as="p">
         A set of tools to implement a design system on top of @emotion/css and @emotion/react as well as add some
         primitive components to make prototyping UI faster and easier
       </Typography>
