@@ -39,6 +39,9 @@ export const theme = {
       "9": "#050505",
     },
   },
+  shadow: {
+    xl: "0px 48px 80px -32px rgba(55, 56, 74, 0.12), 0px 64px 132px -20px rgba(55, 56, 74, 0.08)",
+  },
   radius: {
     xs: 4,
     md: 6,
@@ -107,6 +110,7 @@ There is also a `ThemeConfig` interface that can guide you through the configura
 - `palette` - the palette describes the colors to be used within the app. The structure is completely free. You can either use a flat list or a x-levels nested structure. The keys are later on used when referencing color values. If using a flat structure, the key to use for referencing colors would be the same as the property name. If using a nested structure, a dot notation is later on used - e.g. `primary.normal`
 - `typography` - defining your typography styles is crucial for consistency. As with the colors, the structure here is completely up to you with the exception of the `default` property, which contains the base typography styles. All other styles inherit from it, so you don't you can omit the repeating styles (like for example the font-family) and only override what's different
 - `radius` - defines a list of accepted border radiuses to use in the app. As with the previous configs, the keys of the object are later used as property values. The values can be both numbers or strings (e.g. percentage, vw or any other CSS-accepted value)
+- `shadow` - defines a list of accepted shadows to use in the app. As with the previous configs, the keys of the object are later used as property values.
 - `zIndex` - defines a list of accepted zIndexes. Defining those in a common place reduces the risks of getting bugs with overlapping contents in your app. We recommend using a slight interval (10/100) to allow adding additional values later on.
 - `border` - often times the border that you would use in your app would be the same color and width. Defining a color and width tokens here would remove the need of specifying them manually every time you need a default border
 - `...customThemeProp` - you can add any other property to the theme as you would do with the regular emotion theme and that would be available in the theme object when using the `css` property or `useTheme`
@@ -121,6 +125,7 @@ type Typography = typeof theme.typography;
 type ZIndex = typeof theme.zIndex;
 type Palette = typeof theme.palette;
 type Radius = typeof theme.radius;
+type TShadow = typeof theme.shadow;
 
 type CustomProps = Omit<
   typeof theme,
@@ -131,6 +136,7 @@ declare module "e-prim" {
   export interface TBreakpoint extends Breakpoint {}
   export interface TPalette extends Palette {}
   export interface TRadius extends Radius {}
+  export interface TShadow extends Shadow {}
   export interface TZIndex extends ZIndex {}
   export interface TTypography extends Typography {}
   export interface TCustomProps extends CustomProps {}

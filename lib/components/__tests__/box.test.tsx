@@ -19,6 +19,7 @@ describe("box", () => {
           p={5}
           grow={1}
           onClick={console.log}
+          shadow="xl"
         >
           child
         </Box>,

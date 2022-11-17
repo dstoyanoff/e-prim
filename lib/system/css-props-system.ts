@@ -1,4 +1,4 @@
-import { BaseTheme, PaletteKey, TRadius, TypographyKey, TZIndex } from "../theme/types";
+import { BaseTheme, PaletteKey, ShadowKey, TRadius, TypographyKey, TZIndex } from "../theme/types";
 import { getValueFromKey } from "../utils/dot-object";
 import { pxOrRaw } from "../utils/px-or-raw";
 import { createValue } from "./create-value";
@@ -30,6 +30,7 @@ export const createCssProps = (props: CssPropsSystem, theme: BaseTheme): CssProp
     grow,
     zIndex,
     typography,
+    shadow,
   } = props;
 
   const colorTransformer = (value: PaletteKey) => getValueFromKey<string>(value, theme.palette);
@@ -52,6 +53,7 @@ export const createCssProps = (props: CssPropsSystem, theme: BaseTheme): CssProp
 
     createValue("color", color, colorTransformer),
     createValue("background", background, colorTransformer),
+    responsive("boxShadow", shadow, value => getValueFromKey(value, theme.shadow)),
 
     createValue("border", border, borderTransformer),
     createValue("borderTop", borderTop, borderTransformer),
@@ -88,6 +90,7 @@ export const cssPropsKeys = getAllPropKeys<CssPropsSystem>({
   width: true,
   zIndex: true,
   radius: true,
+  shadow: true,
 });
 
 export type PositionProps = {
@@ -108,6 +111,7 @@ export type SizeProps = {
 export type ColorProps = {
   background?: PaletteKey;
   color?: PaletteKey;
+  shadow?: ResponsiveValue<ShadowKey>;
 };
 
 export type BorderProps = {

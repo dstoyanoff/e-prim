@@ -6,6 +6,7 @@ exports[`box should render box 1`] = `
   height: 50%;
   color: #898896;
   background: #00659e;
+  box-shadow: 0px 48px 80px -32px rgba(55, 56, 74, 0.12),0px 64px 132px -20px rgba(55, 56, 74, 0.08);
   cursor: pointer;
   font-family: Mulish;
   font-size: 11px;

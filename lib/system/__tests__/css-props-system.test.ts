@@ -13,6 +13,7 @@ describe("css props system", () => {
             width: "100%",
             typography: "body.1",
             grow: 1,
+            shadow: "xl",
           },
           mockTheme,
         ),
@@ -27,6 +28,7 @@ describe("css props system", () => {
         {},
         {},
         { background: "#00659e" },
+        { boxShadow: "0px 48px 80px -32px rgba(55, 56, 74, 0.12), 0px 64px 132px -20px rgba(55, 56, 74, 0.08)" },
         { border: "1px solid #d8d7df" },
         {},
         {},
@@ -54,6 +56,9 @@ describe("css props system", () => {
               md: 300,
             },
             zIndex: "dropdown",
+            shadow: {
+              md: "xl",
+            },
           },
           { ...mockTheme, border: undefined },
         ),
@@ -71,6 +76,11 @@ describe("css props system", () => {
         {},
         {},
         { background: "#898896" },
+        {
+          "@media (min-width: 500px)": {
+            boxShadow: "0px 48px 80px -32px rgba(55, 56, 74, 0.12), 0px 64px 132px -20px rgba(55, 56, 74, 0.08)",
+          },
+        },
         { border: "1px solid #27262c" },
         {},
         {},

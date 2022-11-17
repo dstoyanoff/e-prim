@@ -14,14 +14,15 @@ export type SpacingUnit = string | number;
 export interface TBreakpoint {}
 export interface TPalette {}
 export interface TRadius {}
+export interface TShadow {}
 export interface TZIndex {}
 export interface TTypography {}
 
 export interface TCustomProps {}
 
 export type PaletteKey = Join<PathsToStringProps<TPalette>> | "transparent";
-
 export type TypographyKey = Join<PathsToStringProps<TTypography, TypographySpecs>> | "default";
+export type ShadowKey = Join<PathsToStringProps<TShadow>>;
 
 export interface BaseTheme extends TCustomProps {
   /**
@@ -54,6 +55,12 @@ export interface BaseTheme extends TCustomProps {
   radius: TRadius;
 
   /**
+   * Defines a list of shadows that can be used in the app.
+   * The keys of this object would be used as values to the shadow property and automatically apply box-shadow to the object
+   */
+  shadow: TShadow;
+
+  /**
    * List of z-indexes to be used within the app. Knowing your z-indexes globally can guard you from weird bugs.
    * Similarly to other props, the keys of this object will later be used as values of the zIndex prop
    */
@@ -73,8 +80,8 @@ export interface BaseTheme extends TCustomProps {
   mediaDown: (breakpoint: keyof TBreakpoint) => string;
   mediaUp: (breakpoint: keyof TBreakpoint) => string;
   spacing: (...values: SpacingUnit[]) => string;
-  transparentColor: (key: PaletteKey, opacity: number) => string;
-  colorByKey: (key: PaletteKey) => string;
+  transparentColor: (key: PaletteKey | undefined, opacity: number) => string | undefined;
+  colorByKey: (key: PaletteKey | undefined) => string | undefined;
 }
 
 interface TypographyConfig {
@@ -93,6 +100,7 @@ export type ThemeConfig = TCustomProps & {
   zIndex: TZIndex;
   palette: ColorConfig;
   typography: TypographyConfig;
+  shadow: TShadow;
   border?: {
     color: PaletteKey;
     width: number | string;

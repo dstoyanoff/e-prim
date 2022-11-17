@@ -25,7 +25,7 @@ export const colorByKey = (key: PaletteKey | undefined, palette: TPalette) => {
   return color;
 };
 
-export const transparentColor = (key: PaletteKey, opacity: number, palette: TPalette) => {
+export const transparentColor = (key: PaletteKey | undefined, opacity: number, palette: TPalette) => {
   const color = colorByKey(key, palette);
 
   if (!color) {

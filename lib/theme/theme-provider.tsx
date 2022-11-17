@@ -12,8 +12,9 @@ export const makeTheme = <TTheme extends ThemeConfig>(config: TTheme) => ({
   mediaDown: (breakpoint: keyof TBreakpoint) => mediaDown(breakpoint, config.breakpoint),
   mediaUp: (breakpoint: keyof TBreakpoint) => mediaUp(breakpoint, config.breakpoint),
   spacing: (...values: SpacingUnit[]) => spacing(config.spacing, ...values),
-  transparentColor: (key: PaletteKey, opacity: number) => transparentColor(key, opacity, config.palette as TPalette),
-  colorByKey: (key: PaletteKey) => colorByKey(key, config.palette as TPalette),
+  transparentColor: (key: PaletteKey | undefined, opacity: number) =>
+    transparentColor(key, opacity, config.palette as TPalette),
+  colorByKey: (key: PaletteKey | undefined) => colorByKey(key, config.palette as TPalette),
   spacingValue: config.spacing,
 });
 

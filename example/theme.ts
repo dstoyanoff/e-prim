@@ -1,32 +1,37 @@
+const palette = {
+  primary: {
+    normal: "#00659e",
+  },
+  success: {
+    normal: "#20B000",
+  },
+  warning: {
+    normal: "#ffe607",
+    dark: "#cbb700",
+  },
+  neutral: {
+    0: "#ffffff",
+    1: "#f5f5f5",
+    2: "#edecf0",
+    3: "#d8d7df",
+    4: "#898896",
+    5: "#666472",
+    6: "#424149",
+    7: "#27262c",
+    8: "#131316",
+    9: "#050505",
+  },
+};
+
 export const theme = {
   breakpoint: {
     xs: 0,
     md: 500,
   },
   spacing: 4,
-  palette: {
-    primary: {
-      normal: "#00659e",
-    },
-    success: {
-      normal: "#20B000",
-    },
-    warning: {
-      normal: "#ffe607",
-      dark: "#cbb700",
-    },
-    neutral: {
-      0: "#ffffff",
-      1: "#f5f5f5",
-      2: "#edecf0",
-      3: "#d8d7df",
-      4: "#898896",
-      5: "#666472",
-      6: "#424149",
-      7: "#27262c",
-      8: "#131316",
-      9: "#050505",
-    },
+  palette,
+  shadow: {
+    xl: "0px 48px 80px -32px rgba(55, 56, 74, 0.12), 0px 64px 132px -20px rgba(55, 56, 74, 0.08)",
   },
   radius: {
     xs: 4,
@@ -93,6 +98,7 @@ type Typography = typeof theme.typography;
 type ZIndex = typeof theme.zIndex;
 type Palette = typeof theme.palette;
 type Radius = typeof theme.radius;
+type Shadow = typeof theme.shadow;
 
 type CustomProps = Omit<
   typeof theme,
@@ -103,6 +109,7 @@ declare module "e-prim" {
   export interface TBreakpoint extends Breakpoint {}
   export interface TPalette extends Palette {}
   export interface TRadius extends Radius {}
+  export interface TShadow extends Shadow {}
   export interface TZIndex extends ZIndex {}
   export interface TTypography extends Typography {}
   export interface TCustomProps extends CustomProps {}
