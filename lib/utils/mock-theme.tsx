@@ -30,6 +30,9 @@ export const mockThemeConfig = {
       9: "#050505",
     },
   },
+  shadow: {
+    xl: "0px 48px 80px -32px rgba(55, 56, 74, 0.12), 0px 64px 132px -20px rgba(55, 56, 74, 0.08)",
+  },
   radius: {
     xs: 4,
     md: 6,

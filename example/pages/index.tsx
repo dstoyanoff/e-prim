@@ -19,9 +19,9 @@ export default function () {
       <ArrowIcon color="success.normal" size={32} />
 
       <Box
-        label="link"
         onClick={console.log}
         p={4}
+        shadow="xl"
         css={({ breakpoint, palette }) => ({
           width: breakpoint.md,
           color: palette.neutral[0],

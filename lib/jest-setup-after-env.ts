@@ -5,6 +5,7 @@ type Typography = typeof mockThemeConfig.typography;
 type ZIndex = typeof mockThemeConfig.zIndex;
 type Palette = typeof mockThemeConfig.palette;
 type Radius = typeof mockThemeConfig.radius;
+type Shadow = typeof mockThemeConfig.shadow;
 
 type CustomProps = Omit<
   typeof mockThemeConfig,
@@ -15,6 +16,7 @@ declare module "./theme/types" {
   export interface TBreakpoint extends Breakpoint {}
   export interface TPalette extends Palette {}
   export interface TRadius extends Radius {}
+  export interface TShadow extends Shadow {}
   export interface TZIndex extends ZIndex {}
   export interface TTypography extends Typography {}
   export interface TCustomProps extends CustomProps {}
