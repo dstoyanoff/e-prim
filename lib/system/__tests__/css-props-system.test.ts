@@ -49,7 +49,7 @@ describe("css props system", () => {
       expect(
         createCssProps(
           {
-            background: "neutral.4",
+            background: "transparent",
             border: "neutral.7",
             width: {
               xs: "100%",
@@ -75,7 +75,7 @@ describe("css props system", () => {
         {},
         {},
         {},
-        { background: "#898896" },
+        { background: "transparent" },
         {
           "@media (min-width: 500px)": {
             boxShadow: "0px 48px 80px -32px rgba(55, 56, 74, 0.12), 0px 64px 132px -20px rgba(55, 56, 74, 0.08)",

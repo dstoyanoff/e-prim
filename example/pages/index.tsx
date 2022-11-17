@@ -34,9 +34,13 @@ export default function () {
 
       <StyledBox>Styled Text</StyledBox>
 
-      <Flex direction={{ xs: "column", md: "row" }} gap={{ xs: 2, md: 4 }} p={4}>
-        <Box>item1</Box>
-        <Box>item2</Box>
+      <Flex direction={{ xs: "column", md: "row" }} gap={{ xs: 2, md: 4 }} p={4} background="neutral.6">
+        <Box background="neutral.3" p={4}>
+          item1
+        </Box>
+        <Box background="transparent" p={4}>
+          item2
+        </Box>
       </Flex>
 
       <Grid columns={[2, [100, 200]]}>

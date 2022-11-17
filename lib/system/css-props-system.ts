@@ -4,6 +4,7 @@ import { pxOrRaw } from "../utils/px-or-raw";
 import { createValue } from "./create-value";
 import { getAllPropKeys } from "./get-all-prop-keys";
 import { responsiveCssValueFactory } from "./responsive-css-value-factory";
+import { colorByKey } from "./theme-functions";
 import { CssProperties, ResponsiveValue } from "./types";
 import { getTypographyStyles } from "./typography-system";
 
@@ -33,10 +34,10 @@ export const createCssProps = (props: CssPropsSystem, theme: BaseTheme): CssProp
     shadow,
   } = props;
 
-  const colorTransformer = (value: PaletteKey) => getValueFromKey<string>(value, theme.palette);
+  const colorTransformer = (value: PaletteKey) => colorByKey(value, theme.palette);
   const borderTransformer = (value: PaletteKey | boolean) => {
     const width = pxOrRaw(theme.border?.width ?? 1);
-    const color = getValueFromKey(value === true ? theme.border?.color : (value as string), theme.palette);
+    const color = colorByKey(value === true ? theme.border?.color : (value as PaletteKey | undefined), theme.palette);
 
     return `${width} solid ${color}`;
   };
