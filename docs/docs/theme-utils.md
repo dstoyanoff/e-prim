@@ -62,3 +62,17 @@ The spacing util is the same one that you can use in the box system (margins/pad
 `transparentColor(key: PaletteKey, opacity: number)`
 
 The transparent color util takes a key from your palette as well as a transparency value. Based on that, it resolves the color, tries to get it's type (hex, rgb, hsl) and applies the provided opacity. Opacity is interpreted as a percentage (0 - 100);
+
+## colorByKey
+
+`colorByKey(key: PaletteColor)`
+
+Resolves the color value given a palette key from your theme configuration
+
+```tsx
+<Box
+  css={({ colorByKey }) => ({
+    color: colorByKey("neutral.0")
+  })}
+/>
+```

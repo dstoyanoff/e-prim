@@ -1,7 +1,7 @@
 import { mockTheme } from "../../utils/mock-theme";
-import { mediaDown, mediaUp, spacing, transparentColor } from "../theme-functions";
+import { colorByKey, mediaDown, mediaUp, spacing, transparentColor } from "../theme-functions";
 
-let mockColor = "";
+let mockColor: string | undefined;
 jest.mock("../../utils/dot-object", () => ({
   getValueFromKey: () => mockColor,
 }));
@@ -35,6 +35,12 @@ describe("theme-functions", () => {
   });
 
   describe("transparentColor", () => {
+    test("should warn if the color key is not found", () => {
+      mockColor = undefined;
+
+      expect(transparentColor("neutral.0", 10, mockTheme.palette)).toBeUndefined();
+    });
+
     test("should make hex value transparent", () => {
       mockColor = "#001122";
 
@@ -73,5 +79,20 @@ describe("theme-functions", () => {
       expect(transparentColor("neutral.0", 10, mockTheme.palette)).toEqual(mockColor);
       expect(warn).toHaveBeenCalledWith("Color invalid was not recognized as any valid type of color");
     });
+  });
+});
+
+describe("color by key", () => {
+  test("should return nothing if the color is not found", () => {
+    mockColor = undefined;
+
+    colorByKey("neutral.0", mockTheme.palette);
+
+    expect(warn).toHaveBeenCalledWith("Could not find color by key neutral.0");
+  });
+
+  test("should return color", () => {
+    mockColor = "#ffffff";
+    expect(colorByKey("neutral.0", mockTheme.palette)).toEqual("#ffffff");
   });
 });

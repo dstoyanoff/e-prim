@@ -18,5 +18,6 @@ describe("theme provider", () => {
     expect(result.result.current.mediaUp("md")).toEqual("@media (min-width: 500px)");
     expect(result.result.current.spacing(4)).toEqual("16px");
     expect(result.result.current.transparentColor("neutral.1", 10)).toEqual("#f5f5f51a");
+    expect(result.result.current.colorByKey("neutral.1")).toEqual("#f5f5f5");
   });
 });

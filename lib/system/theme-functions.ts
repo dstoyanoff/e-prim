@@ -15,8 +15,22 @@ export const mediaUp = (breakpoint: keyof TBreakpoint, themeBreakpoint: TBreakpo
 export const spacing = (spacingValue: number, ...values: SpacingUnit[]) =>
   values.map(item => pxOrRaw(item, item => item * spacingValue)).join(" ");
 
+export const colorByKey = (key: PaletteKey | undefined, palette: TPalette) => {
+  const color = getValueFromKey<string>(key, palette);
+  if (!color) {
+    console.warn(`Could not find color by key ${key}`);
+    return;
+  }
+
+  return color;
+};
+
 export const transparentColor = (key: PaletteKey, opacity: number, palette: TPalette) => {
-  const color = String(getValueFromKey(key, palette));
+  const color = colorByKey(key, palette);
+
+  if (!color) {
+    return;
+  }
 
   if (color.startsWith("#")) {
     return `${color}${percentToHex(opacity)}`;
