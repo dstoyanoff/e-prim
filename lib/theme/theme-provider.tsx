@@ -1,7 +1,7 @@
 import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import { PropsWithChildren } from "react";
-import { mediaDown, mediaUp, spacing } from "../system/theme-functions";
-import { BaseTheme, SpacingUnit, TBreakpoint, ThemeConfig } from "./types";
+import { transparentColor, mediaDown, mediaUp, spacing } from "../system/theme-functions";
+import { BaseTheme, PaletteKey, SpacingUnit, TBreakpoint, ThemeConfig, TPalette } from "./types";
 
 export type ThemeProviderProps<TTheme extends ThemeConfig> = {
   theme: TTheme;
@@ -12,6 +12,7 @@ export const makeTheme = <TTheme extends ThemeConfig>(config: TTheme) => ({
   mediaDown: (breakpoint: keyof TBreakpoint) => mediaDown(breakpoint, config.breakpoint),
   mediaUp: (breakpoint: keyof TBreakpoint) => mediaUp(breakpoint, config.breakpoint),
   spacing: (...values: SpacingUnit[]) => spacing(config.spacing, ...values),
+  transparentColor: (key: PaletteKey, opacity: number) => transparentColor(key, opacity, config.palette as TPalette),
   spacingValue: config.spacing,
 });
 
