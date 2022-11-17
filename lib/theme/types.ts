@@ -73,6 +73,8 @@ export interface BaseTheme extends TCustomProps {
   mediaDown: (breakpoint: keyof TBreakpoint) => string;
   mediaUp: (breakpoint: keyof TBreakpoint) => string;
   spacing: (...values: SpacingUnit[]) => string;
+  transparentColor: (key: PaletteKey, opacity: number) => string;
+  colorByKey: (key: PaletteKey) => string;
 }
 
 interface TypographyConfig {
