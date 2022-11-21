@@ -1,4 +1,4 @@
-import { mockTheme } from "../../utils/mock-theme";
+import { mockTheme } from "@/utils/mock-theme";
 import { createGrid } from "../grid-system";
 
 describe("grid system", () => {

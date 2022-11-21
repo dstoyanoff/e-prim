@@ -1,4 +1,4 @@
-import { mockTheme } from "../../utils/mock-theme";
+import { mockTheme } from "@/utils/mock-theme";
 import { responsiveCssValueFactory, ValueTransformer } from "../responsive-css-value-factory";
 
 describe("responsiveCssValueFactory", () => {
@@ -10,10 +10,10 @@ describe("responsiveCssValueFactory", () => {
     expect(responsive("marginTop", undefined)).toEqual({}));
 
   test("should return an empty object if the value transformer returns null", () =>
-    expect(responsive("marginTop", 1, _ => null as never)).toEqual({}));
+    expect(responsive("marginTop", 1, () => null as never)).toEqual({}));
 
   test("should return an empty object if the value transformer returns undefined", () =>
-    expect(responsive("marginTop", 1, _ => undefined as never)).toEqual({}));
+    expect(responsive("marginTop", 1, () => undefined as never)).toEqual({}));
 
   test("should return plain value for non-responsive properties", () =>
     expect(responsive("marginTop", "8px")).toEqual({

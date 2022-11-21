@@ -1,6 +1,5 @@
-import { BaseTheme, SpacingUnit } from "../theme/types";
-import { singleOrMulti } from "../utils/array-utils";
-import { FixedLengthArray } from "../utils/array-utils";
+import { BaseTheme, SpacingUnit } from "@/theme/types";
+import { singleOrMulti, FixedLengthArray } from "@/utils/array-utils";
 import { getAllPropKeys } from "./get-all-prop-keys";
 import { responsiveCssValueFactory, ValueTransformer } from "./responsive-css-value-factory";
 import { CssProperties, ResponsiveValue } from "./types";

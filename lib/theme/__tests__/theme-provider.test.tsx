@@ -4,7 +4,7 @@
 
 import { useTheme } from "@emotion/react";
 import { renderHook } from "@testing-library/react";
-import { mockTheme, wrapper } from "../../utils/mock-theme";
+import { mockTheme, wrapper } from "@/utils/mock-theme";
 
 describe("theme provider", () => {
   test("should inject theme", () => {

@@ -1,4 +1,4 @@
-import { mockTheme } from "../../utils/mock-theme";
+import { mockTheme } from "@/utils/mock-theme";
 import { colorByKey, mediaDown, mediaUp, spacing, transparentColor } from "../theme-functions";
 
 let mockColor: string | undefined;
@@ -6,7 +6,9 @@ jest.mock("../../utils/dot-object", () => ({
   getValueFromKey: () => mockColor,
 }));
 
-const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+const warn = jest.spyOn(console, "warn").mockImplementation(() => {
+  return;
+});
 
 describe("theme-functions", () => {
   describe("mediaDown", () => {

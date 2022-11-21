@@ -1,4 +1,4 @@
-import { mockTheme } from "../../utils/mock-theme";
+import { mockTheme } from "@/utils/mock-theme";
 import { createTypography, getTypographyStyles } from "../typography-system";
 
 describe("typography system", () => {

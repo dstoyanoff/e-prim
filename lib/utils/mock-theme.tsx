@@ -1,4 +1,4 @@
-import { makeTheme, ThemeProvider } from "../theme";
+import { makeTheme, ThemeProvider } from "@/theme";
 
 export const mockThemeConfig = {
   breakpoint: {

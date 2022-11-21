@@ -1,4 +1,4 @@
-import { ResponsiveValue } from "../../system/types";
+import { ResponsiveValue } from "@/system/types";
 import { isResponsiveValue } from "../is-responsive-value";
 
 const breakpoints = {
@@ -28,7 +28,7 @@ describe("isResponsiveValue", () => {
         {
           xs: "valueXs",
           invalidProp: "valueInvalid",
-        },
+        } as never,
         breakpoints,
       ),
     ).toEqual(true));

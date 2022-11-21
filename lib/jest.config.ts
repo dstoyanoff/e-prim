@@ -1,4 +1,5 @@
-import "ts-jest";
+import { pathsToModuleNameMapper } from "ts-jest";
+import tsConfig from "./tsconfig.json";
 
 const config = {
   collectCoverage: true,
@@ -16,6 +17,8 @@ const config = {
   coverageReporters: ["text-summary", "text"],
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
   testEnvironment: "node",
+  moduleNameMapper: pathsToModuleNameMapper(tsConfig.compilerOptions.paths, { prefix: "<rootDir>" }),
+
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": [
       "babel-jest",

@@ -3,7 +3,7 @@
  */
 
 import { render } from "@testing-library/react";
-import { wrapper } from "../../utils/mock-theme";
+import { wrapper } from "@/utils/mock-theme";
 import { Flex } from "../flex";
 
 describe("flex", () => {

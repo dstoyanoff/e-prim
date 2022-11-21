@@ -19,6 +19,7 @@ export type Join<T extends (string | number)[], D extends string = "."> = T exte
  * @param key dot-based path
  * @param object reference to the main object that should be used to find the value
  */
+// eslint-disable-next-line @typescript-eslint/ban-types
 export const getValueFromKey = <TValue, TKey extends string = string, TObject = {}>(
   key: TKey | undefined,
   object: TObject,
@@ -30,6 +31,7 @@ export const getValueFromKey = <TValue, TKey extends string = string, TObject = 
   const paths = key.split(".");
 
   return paths.reduce((accumulator, path) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return accumulator ? accumulator[path] : (object as any)[path];
   }, undefined);
 };

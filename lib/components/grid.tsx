@@ -1,8 +1,8 @@
 import { ElementType, forwardRef, ReactElement, Ref } from "react";
-import { combineResponsiveValues } from "../system/combine-responsive-values";
+import { combineResponsiveValues } from "@/system/combine-responsive-values";
+import { createGrid, gridPropKeys, GridSystem } from "@/system/grid-system";
+import { omit } from "@/utils/omit";
 import { Box, BoxProps } from "./box";
-import { omit } from "../utils/omit";
-import { createGrid, gridPropKeys, GridSystem } from "../system/grid-system";
 
 const DEFAULT_TAG = "div";
 

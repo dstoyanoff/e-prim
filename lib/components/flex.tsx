@@ -1,8 +1,8 @@
 import { ElementType, forwardRef, ReactElement, Ref } from "react";
-import { combineResponsiveValues } from "../system/combine-responsive-values";
-import { createFlex, flexPropKeys, FlexSystem } from "../system/flex-system";
+import { combineResponsiveValues } from "@/system/combine-responsive-values";
+import { createFlex, flexPropKeys, FlexSystem } from "@/system/flex-system";
+import { omit } from "@/utils/omit";
 import { Box, BoxProps } from "./box";
-import { omit } from "../utils/omit";
 
 const DEFAULT_TAG = "div";
 

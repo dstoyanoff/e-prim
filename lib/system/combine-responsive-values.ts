@@ -1,4 +1,4 @@
-import { CssProperties, ResponsiveValue } from "../system/types";
+import { CssProperties, ResponsiveValue } from "./types";
 
 /**
  * Every style can currently produce an object that contains the same key when using responsive values (media-queries)
