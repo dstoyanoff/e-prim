@@ -1,9 +1,8 @@
 import { ElementType, forwardRef, ReactElement, Ref } from "react";
-import { TypographySystem } from "../system/typography-system";
+import { combineResponsiveValues } from "@/system/combine-responsive-values";
+import { TypographySystem, createTypography, typographyPropKeys } from "@/system/typography-system";
+import { omit } from "@/utils/omit";
 import { Box, BoxProps } from "./box";
-import { omit } from "../utils/omit";
-import { combineResponsiveValues } from "../system/combine-responsive-values";
-import { createTypography, typographyPropKeys } from "../system/typography-system";
 
 const DEFAULT_TAG = "span";
 

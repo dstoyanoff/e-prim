@@ -1,6 +1,6 @@
-import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import { PropsWithChildren } from "react";
-import { transparentColor, mediaDown, mediaUp, spacing, colorByKey } from "../system/theme-functions";
+import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
+import { transparentColor, mediaDown, mediaUp, spacing, colorByKey } from "@/system/theme-functions";
 import { BaseTheme, PaletteKey, SpacingUnit, TBreakpoint, ThemeConfig, TPalette } from "./types";
 
 export type ThemeProviderProps<TTheme extends ThemeConfig> = {

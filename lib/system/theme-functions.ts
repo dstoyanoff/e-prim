@@ -1,7 +1,7 @@
-import { PaletteKey, SpacingUnit, TBreakpoint, TPalette } from "../theme";
-import { percentToHex } from "../utils/color-utils";
-import { getValueFromKey } from "../utils/dot-object";
-import { pxOrRaw } from "../utils/px-or-raw";
+import { PaletteKey, SpacingUnit, TBreakpoint, TPalette } from "@/theme";
+import { percentToHex } from "@/utils/color-utils";
+import { getValueFromKey } from "@/utils/dot-object";
+import { pxOrRaw } from "@/utils/px-or-raw";
 import { safeColors } from "./safe-colors";
 
 const REGEX_RGB = /rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/;

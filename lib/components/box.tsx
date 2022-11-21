@@ -1,11 +1,10 @@
 import { ComponentProps, ElementType, forwardRef, ReactElement, Ref } from "react";
-import { combineResponsiveValues } from "../system/combine-responsive-values";
-import { createCssProps, cssPropsKeys, CssPropsSystem } from "../system/css-props-system";
-import { createMargins, marginsPropKeys, MarginSystem } from "../system/margin-system";
-import { createPaddings, paddingsPropKeys, PaddingSystem } from "../system/padding-system";
-import "../theme/types";
-import { BaseTheme } from "../theme/types";
-import { omit } from "../utils/omit";
+import { combineResponsiveValues } from "@/system/combine-responsive-values";
+import { createCssProps, cssPropsKeys, CssPropsSystem } from "@/system/css-props-system";
+import { createMargins, marginsPropKeys, MarginSystem } from "@/system/margin-system";
+import { createPaddings, paddingsPropKeys, PaddingSystem } from "@/system/padding-system";
+import { BaseTheme } from "@/theme/types";
+import { omit } from "@/utils/omit";
 
 const DEFAULT_TAG = "div";
 

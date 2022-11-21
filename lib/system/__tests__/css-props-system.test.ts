@@ -1,4 +1,4 @@
-import { mockTheme } from "../../utils/mock-theme";
+import { mockTheme } from "@/utils/mock-theme";
 import { createCssProps } from "../css-props-system";
 
 describe("css props system", () => {

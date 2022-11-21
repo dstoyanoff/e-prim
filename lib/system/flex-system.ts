@@ -1,4 +1,4 @@
-import { BaseTheme, SpacingUnit } from "../theme/types";
+import { BaseTheme, SpacingUnit } from "@/theme/types";
 import { getAllPropKeys } from "./get-all-prop-keys";
 import { responsiveCssValueFactory, ValueTransformer } from "./responsive-css-value-factory";
 import { CssProperties, ResponsiveValue } from "./types";

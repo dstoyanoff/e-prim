@@ -1,4 +1,4 @@
-import { mockTheme } from "../../utils/mock-theme";
+import { mockTheme } from "@/utils/mock-theme";
 import { createPaddings } from "../padding-system";
 
 describe("padding system", () => {

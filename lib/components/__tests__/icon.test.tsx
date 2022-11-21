@@ -2,9 +2,9 @@
  * @jest-environment jsdom
  */
 
-import { render } from "@testing-library/react";
 import { FC } from "react";
-import { wrapper } from "../../utils/mock-theme";
+import { render } from "@testing-library/react";
+import { wrapper } from "@/utils/mock-theme";
 import { BaseIcon, IconProps } from "../icon";
 
 const ArrowIcon: FC<IconProps> = props => (

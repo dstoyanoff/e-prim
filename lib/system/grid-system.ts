@@ -1,5 +1,5 @@
-import { BaseTheme, SpacingUnit } from "../theme/types";
-import { pxOrRaw } from "../utils/px-or-raw";
+import { BaseTheme, SpacingUnit } from "@/theme/types";
+import { pxOrRaw } from "@/utils/px-or-raw";
 import { getAllPropKeys } from "./get-all-prop-keys";
 import { responsiveCssValueFactory } from "./responsive-css-value-factory";
 import { CssProperties, ResponsiveValue } from "./types";

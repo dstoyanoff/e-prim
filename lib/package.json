@@ -15,7 +15,8 @@
     "example": "yarn --cwd ./example install && yarn --cwd ./example dev",
     "build": "tsup",
     "test": "jest",
-    "bundlewatch": "bundlewatch --config .bundlewatch.config.js"
+    "bundlewatch": "bundlewatch --config .bundlewatch.config.js",
+    "lint": "eslint --ext .ts,.tsx ."
   },
   "peerDependencies": {
     "@emotion/react": ">11",

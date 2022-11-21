@@ -1,5 +1,5 @@
-import { BaseTheme, TypographyKey, TypographySpecs } from "../theme/types";
-import { getValueFromKey } from "../utils/dot-object";
+import { BaseTheme, TypographyKey, TypographySpecs } from "@/theme/types";
+import { getValueFromKey } from "@/utils/dot-object";
 import { getAllPropKeys } from "./get-all-prop-keys";
 import { responsiveCssValueFactory } from "./responsive-css-value-factory";
 import { CssProperties, ResponsiveValue } from "./types";

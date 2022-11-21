@@ -1,5 +1,5 @@
-import { BaseTheme, TBreakpoint } from "../theme/types";
-import { isResponsiveValue } from "../utils/is-responsive-value";
+import { BaseTheme, TBreakpoint } from "@/theme/types";
+import { isResponsiveValue } from "@/utils/is-responsive-value";
 import { createValue } from "./create-value";
 import { CssProperties, ResponsiveValue } from "./types";
 
@@ -46,5 +46,6 @@ export const responsiveCssValueFactory =
       }
 
       return acc;
-    }, {} as Record<any, any>);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    }, {} as Record<string, any>);
   };

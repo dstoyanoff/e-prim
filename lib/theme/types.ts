@@ -1,6 +1,6 @@
-import { safeColors } from "../system/safe-colors";
-import { CssProperties } from "../system/types";
-import { Join, PathsToStringProps } from "../utils/dot-object";
+import { safeColors } from "@/system/safe-colors";
+import { CssProperties } from "@/system/types";
+import { Join, PathsToStringProps } from "@/utils/dot-object";
 
 export type TypographySpecs = {
   fontFamily?: CssProperties["fontFamily"];

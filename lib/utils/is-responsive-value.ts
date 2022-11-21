@@ -1,5 +1,5 @@
-import { ResponsiveValue } from "../system/types";
-import { TBreakpoint } from "../theme";
+import { ResponsiveValue } from "@/system/types";
+import { TBreakpoint } from "@/theme";
 
 /**
  * Check if the value is an object that contains either breakpoint
