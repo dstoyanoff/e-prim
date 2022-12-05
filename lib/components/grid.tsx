@@ -19,6 +19,7 @@ export const Grid: <E extends ElementType = typeof DEFAULT_TAG>(props: GridProps
     return (
       <Box
         ref={ref}
+        label="grid"
         {...omit(props, ...gridPropKeys)}
         css={theme => combineResponsiveValues(...createGrid(props, theme))}
       />

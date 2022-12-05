@@ -34,7 +34,7 @@ export const Box: <E extends ElementType = typeof DEFAULT_TAG>(props: BoxProps<E
         ref={ref}
         {...omit(props, ...marginsPropKeys, ...paddingsPropKeys, ...cssPropsKeys)}
         css={(theme: BaseTheme) => ({
-          label,
+          label: label ?? "box",
           ...combineResponsiveValues(
             ...createCssProps(props, theme),
             ...createMargins(props, theme),

@@ -1,6 +1,8 @@
+/* eslint-disable */
 import styled from "@emotion/styled";
 import { Box, Flex, Grid, Typography } from "e-prim";
 import { ArrowIcon } from "../arrow-icon";
+import { Button } from "../button";
 
 const StyledBox = styled(Box)(({ theme: { palette } }) => ({
   color: palette.warning.normal,
@@ -17,6 +19,8 @@ export default function () {
       </Typography>
 
       <ArrowIcon color="success.normal" size={32} />
+
+      <Button>Test Button</Button>
 
       <Box
         onClick={console.log}
