@@ -33,6 +33,7 @@ export const BaseIcon: FC<BaseIconProps> = ({
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     color={color}
+    label="icon"
     {...props}
   />
 );

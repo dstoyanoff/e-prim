@@ -20,6 +20,7 @@ export const Flex: <E extends ElementType = typeof DEFAULT_TAG>(props: FlexProps
   forwardRef(<E extends ElementType = typeof DEFAULT_TAG>(props: FlexProps<E>, ref: Ref<FlexProps<E>["as"]>) => (
     <Box
       ref={ref}
+      label="flex"
       {...omit(props, ...flexPropKeys)}
       css={theme => combineResponsiveValues(...createFlex(props, theme))}
     />

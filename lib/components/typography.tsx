@@ -20,6 +20,7 @@ export const Typography: <E extends ElementType = typeof DEFAULT_TAG>(
     return (
       <Box
         ref={ref}
+        label="typography"
         {...omit(props, ...typographyPropKeys)}
         css={theme => combineResponsiveValues(...createTypography(props, theme))}
       />
