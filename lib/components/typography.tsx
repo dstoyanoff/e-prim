@@ -16,12 +16,12 @@ export type TypographyProps<E extends ElementType> = Omit<BoxProps<E>, "typograp
 export const Typography: <E extends ElementType = typeof DEFAULT_TAG>(
   props: TypographyProps<E>,
 ) => ReactElement | null = forwardRef(
-  <E extends ElementType = typeof DEFAULT_TAG>(props: OwnProps, ref: Ref<TypographyProps<E>["as"]>) => {
+  <E extends ElementType = typeof DEFAULT_TAG>(props: TypographyProps<E>, ref: Ref<TypographyProps<E>["as"]>) => {
     return (
       <Box
         ref={ref}
         label="typography"
-        {...omit(props, ...typographyPropKeys)}
+        {...(omit(props, ...typographyPropKeys) as BoxProps<E>)}
         css={theme => combineResponsiveValues(...createTypography(props, theme))}
       />
     );
