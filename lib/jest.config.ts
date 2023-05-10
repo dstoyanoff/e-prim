@@ -18,6 +18,7 @@ const config = {
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
   testEnvironment: "node",
   moduleNameMapper: pathsToModuleNameMapper(tsConfig.compilerOptions.paths, { prefix: "<rootDir>" }),
+  setupFiles: ["./jest-setup.ts"],
 
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": [

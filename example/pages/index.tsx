@@ -1,6 +1,6 @@
 /* eslint-disable */
 import styled from "@emotion/styled";
-import { Box, Flex, Grid, Typography } from "e-prim";
+import { Box, Flex, Grid, Typography, useMediaDown, useMediaUp } from "e-prim";
 import { ArrowIcon } from "../arrow-icon";
 import { Button } from "../button";
 
@@ -9,8 +9,11 @@ const StyledBox = styled(Box)(({ theme: { palette } }) => ({
 }));
 
 export default function () {
+  const isUpMd = useMediaUp("md");
+  const isDownMd = useMediaDown("md");
+
   return (
-    <Flex direction="column" gap={4} p={4} width="100%" m={{ xs: 2, md: 4 }}>
+    <Flex direction="column" gap={4} p={4} m={{ xs: 2, md: 4 }}>
       <Typography variant="title.1">e-prim</Typography>
 
       <Typography variant="body.1" as="p">
@@ -26,8 +29,7 @@ export default function () {
         onClick={console.log}
         p={4}
         shadow="xl"
-        css={({ breakpoint, palette }) => ({
-          width: breakpoint.md,
+        css={({ palette }) => ({
           color: palette.neutral[0],
         })}
       >
@@ -58,6 +60,9 @@ export default function () {
           md: [1, 100],
         }}
       />
+
+      {isUpMd && <Button>Desktop Button</Button>}
+      {isDownMd && <Button>Mobile Button</Button>}
     </Flex>
   );
 }

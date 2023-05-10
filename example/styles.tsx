@@ -11,7 +11,6 @@ export const GlobalStyles = () => {
           padding: 0,
           background: palette.neutral[7],
           color: palette.neutral[0],
-          width: "100vh",
         },
       })}
     />
