@@ -6,15 +6,15 @@ comment:
   show_carryforward_flags: false
 coverage:
   precision: 2
-  range:
-    - 70.0
-    - 100.0
+  range: 70..1000
   round: down
   status:
     changes: false
     default_rules:
       flag_coverage_not_uploaded_behavior: include
     patch: true
-    project: true
+    project:
+      default:
+        target: 90%
 github_checks:
   annotations: true
