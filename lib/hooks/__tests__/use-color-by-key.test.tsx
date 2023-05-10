@@ -3,22 +3,13 @@
  */
 
 import { renderHook } from "@testing-library/react";
+import { wrapper } from "@/utils/mock-theme";
 import { useColorByKey } from "../use-color-by-key";
-
-jest.mock("@emotion/react", () => ({
-  useTheme: () => ({
-    palette: {
-      primary: {
-        normal: "#123456",
-      },
-    },
-  }),
-}));
 
 describe("useColorByKey", () => {
   test("should resolve color from the theme by key", () => {
-    const hook = renderHook(() => useColorByKey("primary.normal"));
+    const hook = renderHook(() => useColorByKey("primary.normal"), { wrapper });
 
-    expect(hook.result.current).toEqual("#123456");
+    expect(hook.result.current).toEqual("#00659e");
   });
 });
