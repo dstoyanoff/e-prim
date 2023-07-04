@@ -39,4 +39,9 @@ gap?: ResponsiveValue<SpacingUnit>;
 center?: ResponsiveValue<boolean>;
 centerMain?: ResponsiveValue<boolean>;
 centerCross?: ResponsiveValue<boolean>;
+
+/**
+ * Whether to render as inline-flex instead of flex
+ */
+inline?: ResponsiveValue<boolean>;
 ```

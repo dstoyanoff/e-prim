@@ -5,7 +5,7 @@ import { CssProperties, ResponsiveValue } from "./types";
 
 export const createFlex = (props: FlexSystem, theme: BaseTheme): CssProperties[] => {
   const { spacing } = theme;
-  const { direction, center, centerMain, centerCross, gap, justify, align } = props;
+  const { direction, center, centerMain, centerCross, gap, justify, align, inline = false } = props;
 
   const centerTransformer: ValueTransformer<"alignItems" | "justifyContent", boolean> = value =>
     value ? "center" : undefined;
@@ -13,7 +13,7 @@ export const createFlex = (props: FlexSystem, theme: BaseTheme): CssProperties[]
   const responsive = responsiveCssValueFactory(theme);
 
   return [
-    { display: "flex" },
+    responsive('display', inline, value => value ? "inline-flex" : "flex"),
     responsive("flexDirection", direction),
 
     responsive("alignItems", align),
@@ -36,6 +36,7 @@ export const flexPropKeys = getAllPropKeys<FlexSystem>({
   justify: true,
   gap: true,
   direction: true,
+  inline: true
 });
 
 export type FlexSystem = {
@@ -73,4 +74,9 @@ export type FlexSystem = {
    * Applies align-items to the elements. It has lower priority than center/centerMain/centerCross
    */
   align?: ResponsiveValue<CssProperties["alignItems"]>;
+
+  /**
+   * Whether to render as inline-flex instead of flex
+   */
+  inline?: ResponsiveValue<boolean>;
 };
