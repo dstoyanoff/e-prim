@@ -5,7 +5,7 @@ import { CssProperties, ResponsiveValue } from "./types";
 
 export const createFlex = (props: FlexSystem, theme: BaseTheme): CssProperties[] => {
   const { spacing } = theme;
-  const { direction, center, centerMain, centerCross, gap, justify, align, inline } = props;
+  const { direction, center, centerMain, centerCross, gap, justify, align, inline = false } = props;
 
   const centerTransformer: ValueTransformer<"alignItems" | "justifyContent", boolean> = value =>
     value ? "center" : undefined;
@@ -13,7 +13,7 @@ export const createFlex = (props: FlexSystem, theme: BaseTheme): CssProperties[]
   const responsive = responsiveCssValueFactory(theme);
 
   return [
-    { display: inline ? "inline-flex" : "flex" },
+    responsive('display', inline, value => value ? "inline-flex" : "flex"),
     responsive("flexDirection", direction),
 
     responsive("alignItems", align),

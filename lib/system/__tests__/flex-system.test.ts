@@ -7,6 +7,7 @@ describe("flex system", () => {
       expect(
         createFlex(
           {
+            inline: false,
             align: "center",
             center: true,
             direction: "column",
@@ -31,6 +32,10 @@ describe("flex system", () => {
       expect(
         createFlex(
           {
+            inline: {
+              xs: false,
+              md: true
+            },
             align: {
               xs: "left",
               md: "center",
@@ -56,7 +61,10 @@ describe("flex system", () => {
           mockTheme,
         ),
       ).toEqual([
-        { display: "flex" },
+        {
+          "@media (min-width: 0px)": { display: "flex" },
+          "@media (min-width: 500px)": { display: "inline-flex" },
+        },
         {
           "@media (min-width: 0px)": { flexDirection: "row" },
           "@media (min-width: 500px)": { flexDirection: "column" },
