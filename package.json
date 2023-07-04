@@ -14,8 +14,8 @@
     "build": "yarn workspace e-prim tsup"
   },
   "devDependencies": {
-    "@emotion/babel-preset-css-prop": "^11.10.0",
-    "@emotion/jest": "^11.10.5",
+    "@emotion/babel-preset-css-prop": "^11.11.0",
+    "@emotion/jest": "^11.11.0",
     "@testing-library/react": "^13.4.0",
     "@types/jest": "^29.2.3",
     "@types/node": "18.11.9",

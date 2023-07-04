@@ -34,6 +34,8 @@ describe("theme-functions", () => {
 
     test("should return mixed values", () =>
       expect(spacing(mockTheme.spacingValue, "10px", 4, "10%", 8)).toEqual("10px 16px 10% 32px"));
+
+    test("should return empty string if no values provided", () => expect(spacing(mockTheme.spacingValue)).toEqual(""));
   });
 
   describe("transparentColor", () => {

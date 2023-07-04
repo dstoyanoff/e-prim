@@ -20,4 +20,10 @@ describe("icon", () => {
         wrapper,
       }).container,
     ).toMatchSnapshot());
+
+  test("should render with default size and custom viewbox", () => expect(
+    render(
+      <ArrowIcon viewBoxSize={32} />, {wrapper}
+    ).container
+  ).toMatchSnapshot())
 });

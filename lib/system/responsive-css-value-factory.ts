@@ -37,12 +37,12 @@ export const responsiveCssValueFactory =
       const breakpoint = key as keyof TBreakpoint;
       const mediaQuery = mediaUp(breakpoint);
 
-      acc[mediaQuery] = acc[mediaQuery] ?? {};
-
       const transformedBreakpointValue = valueTransform(breakpointValue);
 
       if (transformedBreakpointValue) {
-        acc[mediaQuery][propName] = transformedBreakpointValue;
+        acc[mediaQuery] = {
+          [propName]: transformedBreakpointValue,
+        };
       }
 
       return acc;

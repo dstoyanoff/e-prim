@@ -34,7 +34,7 @@ describe("flex system", () => {
           {
             inline: {
               xs: false,
-              md: true
+              md: true,
             },
             align: {
               xs: "left",
@@ -70,13 +70,13 @@ describe("flex system", () => {
           "@media (min-width: 500px)": { flexDirection: "column" },
         },
         { "@media (min-width: 0px)": { alignItems: "left" }, "@media (min-width: 500px)": { alignItems: "center" } },
-        { "@media (min-width: 0px)": { alignItems: "center" }, "@media (min-width: 500px)": {} },
+        { "@media (min-width: 0px)": { alignItems: "center" } },
         {},
         {
           "@media (min-width: 0px)": { justifyContent: "center" },
           "@media (min-width: 500px)": { justifyContent: "space-between" },
         },
-        { "@media (min-width: 0px)": {}, "@media (min-width: 500px)": { justifyContent: "center" } },
+        { "@media (min-width: 500px)": { justifyContent: "center" } },
         {},
         { "@media (min-width: 0px)": { gap: "16px" }, "@media (min-width: 500px)": { gap: "10px" } },
       ]));

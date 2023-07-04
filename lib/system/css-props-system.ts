@@ -36,8 +36,13 @@ export const createCssProps = (props: CssPropsSystem, theme: BaseTheme): CssProp
 
   const colorTransformer = (value: PaletteKey) => colorByKey(value, theme.palette);
   const borderTransformer = (value: PaletteKey | boolean) => {
+    if (value === true && !theme.border) {
+      throw new Error("Border used as boolean, but the theme does not have a default border configured");
+    }
+
     const width = pxOrRaw(theme.border?.width ?? 1);
-    const color = colorByKey(value === true ? theme.border?.color : (value as PaletteKey | undefined), theme.palette);
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const color = colorByKey(value === true ? theme.border!.color : (value as PaletteKey | undefined), theme.palette);
 
     return `${width} solid ${color}`;
   };
