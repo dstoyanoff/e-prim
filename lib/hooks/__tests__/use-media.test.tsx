@@ -12,7 +12,7 @@ describe("useMediaUp", () => {
     setMedia({
       width: "600px",
       type: "screen",
-      orientation: "landscape"
+      orientation: "landscape",
     });
 
     const hook = renderHook(() => useMediaUp("md"), { wrapper });
@@ -24,7 +24,7 @@ describe("useMediaUp", () => {
     setMedia({
       width: "400px",
       type: "screen",
-      orientation: "landscape"
+      orientation: "landscape",
     });
 
     const hook = renderHook(() => useMediaUp("md"), { wrapper });
@@ -38,7 +38,7 @@ describe("useMediaDown", () => {
     setMedia({
       width: "400px",
       type: "screen",
-      orientation: "landscape"
+      orientation: "landscape",
     });
 
     const hook = renderHook(() => useMediaDown("md"), { wrapper });
@@ -50,7 +50,7 @@ describe("useMediaDown", () => {
     setMedia({
       width: "600px",
       type: "screen",
-      orientation: "landscape"
+      orientation: "landscape",
     });
 
     const hook = renderHook(() => useMediaDown("md"), { wrapper });

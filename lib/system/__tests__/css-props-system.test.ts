@@ -3,6 +3,16 @@ import { createCssProps } from "../css-props-system";
 
 describe("css props system", () => {
   describe("createCssProps", () => {
+    test("should throw if default border is not configured", () =>
+      expect(() =>
+        createCssProps(
+          {
+            border: true,
+          },
+          { ...mockTheme, border: undefined },
+        ),
+      ).toThrowError("Border used as boolean, but the theme does not have a default border configured"));
+
     test("should build proper styles - non-responsive", () =>
       expect(
         createCssProps(

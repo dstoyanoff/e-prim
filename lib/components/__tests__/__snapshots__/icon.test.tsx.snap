@@ -23,3 +23,26 @@ exports[`icon should render icon 1`] = `
   </svg>
 </div>
 `;
+
+exports[`icon should render with default size and custom viewbox 1`] = `
+.emotion-0 {
+  width: 24px;
+  height: 24px;
+}
+
+<div>
+  <svg
+    class="emotion-0"
+    fill="none"
+    viewBox="0 0 32 32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M4 12H20M20 12L12 4M20 12L12 20"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</div>
+`;

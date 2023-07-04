@@ -17,4 +17,19 @@ describe("omit", () => {
       key3: "value3",
       key4: "value4",
     }));
+
+  test("with no values", () =>
+    expect(
+      omit({
+        key1: "value1",
+        key2: "value2",
+        key3: "value3",
+        key4: "value4",
+      }),
+    ).toEqual({
+      key1: "value1",
+      key2: "value2",
+      key3: "value3",
+      key4: "value4",
+    }));
 });

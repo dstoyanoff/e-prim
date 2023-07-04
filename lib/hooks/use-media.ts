@@ -27,7 +27,7 @@ const useMatchMedia = (breakpoint: keyof TBreakpoint, queryPrefix: string) => {
   }, [calculate]);
 
   return isMatch;
-}
+};
 
 export const useMediaUp = (breakpoint: keyof TBreakpoint) => useMatchMedia(breakpoint, "min-width");
 

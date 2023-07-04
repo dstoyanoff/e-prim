@@ -14,7 +14,7 @@ const config = {
     "!dist/**",
     "!jest-setup-after-env.ts",
   ],
-  coverageReporters: ["text-summary", "text"],
+  coverageReporters: ["text-summary", "text", "html"],
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
   testEnvironment: "node",
   moduleNameMapper: pathsToModuleNameMapper(tsConfig.compilerOptions.paths, { prefix: "<rootDir>" }),
