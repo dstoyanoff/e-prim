@@ -9,10 +9,7 @@ const DEFAULT_TAG = "div";
 
 type OwnProps = GridSystem;
 
-export type GridProps<E extends ElementType> = BoxProps<E> &
-  OwnProps & {
-    as?: E;
-  };
+export type GridProps<E extends ElementType> = BoxProps<E> & OwnProps;
 
 /**
  * The grid component is a primitive that exposes useful properties for faster prototyping of grid layouts
@@ -21,8 +18,6 @@ export type GridProps<E extends ElementType> = BoxProps<E> &
 export function Grid<E extends ElementType = typeof DEFAULT_TAG>(props: GridProps<E>): ReactElement | null {
   return (
     <Box
-      ref={props.ref}
-      as={props.as}
       label="grid"
       {...omit(props, ...gridPropKeys)}
       css={(theme: BaseTheme) => combineResponsiveValues(...createGrid(props, theme))}

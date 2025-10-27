@@ -14,11 +14,9 @@ export type FlexProps<E extends ElementType> = BoxProps<E> & OwnProps;
 /**
  * The Flex component is a primitive that exposes useful properties for faster prototyping of flex layouts
  */
-export function Flex<E extends ElementType = typeof DEFAULT_TAG>({ ...props }: FlexProps<E>): ReactElement | null {
+export function Flex<E extends ElementType = typeof DEFAULT_TAG>(props: FlexProps<E>): ReactElement | null {
   return (
     <Box
-      ref={props.ref}
-      as={props.as}
       label="flex"
       {...omit(props, ...flexPropKeys)}
       css={(theme: BaseTheme) => combineResponsiveValues(...createFlex(props, theme))}
