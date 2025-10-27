@@ -1,8 +1,8 @@
-import { forwardRef } from "react";
+import { Ref } from "react";
 import { Box, BoxProps } from "e-prim";
 
-type ButtonProps = BoxProps<"button">;
+type ButtonProps = BoxProps<"button"> & {
+  ref?: Ref<HTMLButtonElement>;
+};
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => (
-  <Box as="button" ref={ref} {...props} label="button" />
-));
+export const Button = ({ ref, ...props }: ButtonProps) => <Box as="button" ref={ref} {...props} label="button" />;

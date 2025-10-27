@@ -21,7 +21,7 @@ export interface TTypography {}
 
 export interface TCustomProps {}
 
-export type PaletteKey = Join<PathsToStringProps<TPalette>> | typeof safeColors[number];
+export type PaletteKey = Join<PathsToStringProps<TPalette>> | (typeof safeColors)[number];
 export type TypographyKey = Join<PathsToStringProps<TTypography, TypographySpecs>> | "default";
 export type ShadowKey = Join<PathsToStringProps<TShadow>>;
 

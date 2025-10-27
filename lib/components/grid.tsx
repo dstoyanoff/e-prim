@@ -1,27 +1,31 @@
-import { ElementType, forwardRef, ReactElement, Ref } from "react";
+import type { ElementType, ReactElement } from "react";
 import { combineResponsiveValues } from "@/system/combine-responsive-values";
-import { createGrid, gridPropKeys, GridSystem } from "@/system/grid-system";
+import { createGrid, gridPropKeys, type GridSystem } from "@/system/grid-system";
+import type { BaseTheme } from "@/theme";
 import { omit } from "@/utils/omit";
-import { Box, BoxProps } from "./box";
+import { Box, type BoxProps } from "./box";
 
 const DEFAULT_TAG = "div";
 
 type OwnProps = GridSystem;
 
-export type GridProps<E extends ElementType> = BoxProps<E> & OwnProps;
+export type GridProps<E extends ElementType> = BoxProps<E> &
+  OwnProps & {
+    as?: E;
+  };
 
 /**
  * The grid component is a primitive that exposes useful properties for faster prototyping of grid layouts
  * NOTE! This component is in BETA and additional properties will be added in the future
  */
-export const Grid: <E extends ElementType = typeof DEFAULT_TAG>(props: GridProps<E>) => ReactElement | null =
-  forwardRef(<E extends ElementType = typeof DEFAULT_TAG>(props: GridProps<E>, ref: Ref<GridProps<E>["as"]>) => {
-    return (
-      <Box
-        ref={ref}
-        label="grid"
-        {...omit(props, ...gridPropKeys)}
-        css={theme => combineResponsiveValues(...createGrid(props, theme))}
-      />
-    );
-  });
+export function Grid<E extends ElementType = typeof DEFAULT_TAG>(props: GridProps<E>): ReactElement | null {
+  return (
+    <Box
+      ref={props.ref}
+      as={props.as}
+      label="grid"
+      {...omit(props, ...gridPropKeys)}
+      css={(theme: BaseTheme) => combineResponsiveValues(...createGrid(props, theme))}
+    />
+  );
+}
