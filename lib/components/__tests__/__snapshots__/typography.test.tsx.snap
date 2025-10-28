@@ -14,10 +14,10 @@ exports[`typography should render typography 1`] = `
 }
 
 <div>
-  <div
+  <span
     class="emotion-0"
   >
     child
-  </div>
+  </span>
 </div>
 `;

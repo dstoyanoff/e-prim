@@ -23,6 +23,8 @@ export function Box<E extends ElementType = typeof DEFAULT_TAG>({ as, label, ...
   const tag = (as || DEFAULT_TAG) as E;
   const clickable = "onClick" in props;
 
+  console.log({ tag, props });
+
   return jsx(tag, {
     ...omit(props, ...marginsPropKeys, ...paddingsPropKeys, ...cssPropsKeys),
     css: (theme: BaseTheme) => ({
