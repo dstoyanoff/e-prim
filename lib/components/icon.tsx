@@ -3,7 +3,7 @@ import { Box, BoxProps } from "./box";
 
 export const DEFAULT_ICON_SIZE = 24;
 
-export type IconProps = BoxProps<"svg"> & {
+export type BaseIconProps = BoxProps<"svg"> & {
   /**
    * Overall size of the icon (square)
    * @default @see {@link DEFAULT_ICON_SIZE}
@@ -17,7 +17,9 @@ export type IconProps = BoxProps<"svg"> & {
   viewBoxSize?: number;
 };
 
-export const BaseIcon: FC<IconProps> = ({
+export type IconProps = Omit<BaseIconProps, "viewBoxSize">;
+
+export const BaseIcon: FC<BaseIconProps> = ({
   size = DEFAULT_ICON_SIZE,
   color,
   viewBoxSize = DEFAULT_ICON_SIZE,
