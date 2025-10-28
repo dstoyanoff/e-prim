@@ -1,29 +1,26 @@
-import { ElementType, forwardRef, ReactElement, Ref } from "react";
+import { ElementType, ReactElement } from "react";
 import { combineResponsiveValues } from "@/system/combine-responsive-values";
-import { TypographySystem, createTypography, typographyPropKeys } from "@/system/typography-system";
+import { type TypographySystem, createTypography, typographyPropKeys } from "@/system/typography-system";
+import type { BaseTheme } from "@/theme";
 import { omit } from "@/utils/omit";
-import { Box, BoxProps } from "./box";
+import { Box, type BoxProps } from "./box";
 
-const DEFAULT_TAG = "span";
+const DEFAULT_TAG = "span" as const;
 
 type OwnProps = TypographySystem;
+export type TypographyProps<E extends ElementType> = Omit<BoxProps<E>, "typography"> & OwnProps;
 
-export type TypographyProps<E extends ElementType> = Omit<BoxProps<E>, "typography"> &
-  OwnProps & {
-    as?: E;
-  };
-
-export const Typography: <E extends ElementType = typeof DEFAULT_TAG>(
-  props: TypographyProps<E>,
-) => ReactElement | null = forwardRef(
-  <E extends ElementType = typeof DEFAULT_TAG>(props: TypographyProps<E>, ref: Ref<TypographyProps<E>["as"]>) => {
-    return (
-      <Box
-        ref={ref}
-        label="typography"
-        {...(omit(props, ...typographyPropKeys) as BoxProps<E>)}
-        css={theme => combineResponsiveValues(...createTypography(props, theme))}
-      />
-    );
-  },
-);
+export function Typography<E extends ElementType = typeof DEFAULT_TAG>({
+  as,
+  ...props
+}: TypographyProps<E>): ReactElement {
+  return (
+    // @ts-expect-error https://github.com/emotion-js/emotion/issues/3245
+    <Box
+      as={as || DEFAULT_TAG}
+      label="typography"
+      {...(omit(props, ...typographyPropKeys) as BoxProps<E>)}
+      css={(theme: BaseTheme) => combineResponsiveValues(...createTypography(props, theme))}
+    />
+  );
+}
