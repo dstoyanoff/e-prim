@@ -24,7 +24,14 @@ const config = {
     "^.+\\.(js|jsx|ts|tsx)$": [
       "babel-jest",
       {
-        presets: ["next/babel", "@emotion/babel-preset-css-prop"],
+        babelrc: false,
+        configFile: false,
+        presets: [
+          "@babel/preset-env",
+          "@babel/preset-typescript",
+          ["@babel/preset-react", { runtime: "automatic", importSource: "@emotion/react" }],
+          "@emotion/babel-preset-css-prop",
+        ],
       },
     ],
   },

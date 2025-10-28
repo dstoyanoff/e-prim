@@ -1,27 +1,24 @@
-import { ElementType, forwardRef, ReactElement, Ref } from "react";
+import type { ElementType } from "react";
 import { combineResponsiveValues } from "@/system/combine-responsive-values";
-import { createFlex, flexPropKeys, FlexSystem } from "@/system/flex-system";
+import { createFlex, flexPropKeys, type FlexSystem } from "@/system/flex-system";
+import type { BaseTheme } from "@/theme";
 import { omit } from "@/utils/omit";
-import { Box, BoxProps } from "./box";
+import { Box, type BoxProps } from "./box";
 
-const DEFAULT_TAG = "div";
+const DEFAULT_TAG = "div" as const;
 
 type OwnProps = FlexSystem;
 
-export type FlexProps<E extends ElementType> = BoxProps<E> &
-  OwnProps & {
-    as?: E;
-  };
+export type FlexProps<E extends ElementType> = BoxProps<E> & OwnProps;
 
-/**
- * The Flex component is a primitive that exposes useful properties for faster prototyping of flex layouts
- */
-export const Flex: <E extends ElementType = typeof DEFAULT_TAG>(props: FlexProps<E>) => ReactElement | null =
-  forwardRef(<E extends ElementType = typeof DEFAULT_TAG>(props: FlexProps<E>, ref: Ref<FlexProps<E>["as"]>) => (
+export function Flex<E extends ElementType = typeof DEFAULT_TAG>({ as, ...props }: FlexProps<E>) {
+  return (
+    // @ts-expect-error https://github.com/emotion-js/emotion/issues/3245
     <Box
-      ref={ref}
+      as={as || DEFAULT_TAG}
       label="flex"
-      {...omit(props, ...flexPropKeys)}
-      css={theme => combineResponsiveValues(...createFlex(props, theme))}
+      {...(omit(props, ...flexPropKeys) as BoxProps<E>)}
+      css={(theme: BaseTheme) => combineResponsiveValues(...createFlex(props, theme))}
     />
-  ));
+  );
+}
